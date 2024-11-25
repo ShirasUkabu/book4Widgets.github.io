@@ -1,0 +1,777 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>OPTIONAL widget layout exercises &#8212; Book for Widgets</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"d2d81152d95f45f89b88cfcfa4305cc3": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "dbb43becc27248e0b7c4e9656b187bd2": {"model_name": "ButtonStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ButtonStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "button_color": null, "font_weight": ""}}, "c8627e918992450c9993736a59b4100a": {"model_name": "ButtonModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ButtonModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ButtonView", "button_style": "", "description": "Click me", "disabled": false, "icon": "", "layout": "IPY_MODEL_d2d81152d95f45f89b88cfcfa4305cc3", "style": "IPY_MODEL_dbb43becc27248e0b7c4e9656b187bd2", "tooltip": ""}}, "57fe6ae8b4cf4046923435c68844b3f3": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a5f399bc559f4903809a29063519d0bf": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "8aeed60a3f9d4ad3a95d4c04981692be": {"model_name": "TextareaModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextareaModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextareaView", "continuous_update": true, "description": "Words here:", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_57fe6ae8b4cf4046923435c68844b3f3", "placeholder": "\u200b", "rows": 10, "style": "IPY_MODEL_a5f399bc559f4903809a29063519d0bf", "value": ""}}, "34f312f7dc164c03b1605bcda2292d28": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "4fcb7184439c4f73a2f48843fa9a55d0": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "719e792827bf497f926dc968b44764af": {"model_name": "ValidModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ValidModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ValidView", "description": "check", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_34f312f7dc164c03b1605bcda2292d28", "readout": "Invalid", "style": "IPY_MODEL_4fcb7184439c4f73a2f48843fa9a55d0", "value": true}}, "8a65680ee9c44ad9b7df14eb97d6ed17": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": "flex-start", "align_self": null, "border": "2px solid grey", "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": "250px", "justify_content": "flex-start", "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": "100%"}}, "b09fc77083424e51bc1dd9a14f72015c": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_c8627e918992450c9993736a59b4100a", "IPY_MODEL_8aeed60a3f9d4ad3a95d4c04981692be", "IPY_MODEL_719e792827bf497f926dc968b44764af"], "layout": "IPY_MODEL_8a65680ee9c44ad9b7df14eb97d6ed17"}}, "8eb22fdbf9ee461488c7852b0cf236db": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c243d3d407824a98945065b969795fd6": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "7b7bdb8598304bafbdc5f934d5173787": {"model_name": "CheckboxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "CheckboxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "CheckboxView", "description": "Include numbers in password", "description_tooltip": null, "disabled": false, "indent": true, "layout": "IPY_MODEL_8eb22fdbf9ee461488c7852b0cf236db", "style": "IPY_MODEL_c243d3d407824a98945065b969795fd6", "value": false}}, "30274a705f4342e19123590fbdf7bcb3": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "61234e820a554261924d7e3cc220a119": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "38a591d17f9341e698dd2970fb6ebcff": {"model_name": "LabelModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "LabelModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "LabelView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_30274a705f4342e19123590fbdf7bcb3", "placeholder": "\u200b", "style": "IPY_MODEL_61234e820a554261924d7e3cc220a119", "value": "The generated password is:"}}, "e148106fbb614343bb129ff1bc07205c": {"model_name": "ToggleButtonsStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ToggleButtonsStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "button_width": "", "description_width": "initial", "font_weight": ""}}, "9fe1ec3b72a84de9b33cc0a5e1d1a839": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a34e8d09c15a4f78ae8c5c13c19a4aa5": {"model_name": "ToggleButtonsModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ToggleButtonsModel", "_options_labels": [",./;[", "!@#~%", "^&*()"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ToggleButtonsView", "button_style": "", "description": "Type of special characters to include", "description_tooltip": null, "disabled": false, "icons": [], "index": 0, "layout": "IPY_MODEL_9fe1ec3b72a84de9b33cc0a5e1d1a839", "style": "IPY_MODEL_e148106fbb614343bb129ff1bc07205c", "tooltips": []}}, "b0d6bd2443da47a1be70ebd049c8db2e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": "2px solid grey", "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": "250px", "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9476836c82194981ab454c99ec05cc80": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": [], "layout": "IPY_MODEL_b0d6bd2443da47a1be70ebd049c8db2e"}}, "68b6b67edd6546758bfd0cd2fad292be": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": "flex-start", "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e0c3ad0355c749178d114d1bf925399d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "fd46d5f5122842f0a6e97b2bdbce6119": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "6f8cfbad299d45efa3db26944aae42de": {"model_name": "LabelModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "LabelModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "LabelView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_e0c3ad0355c749178d114d1bf925399d", "placeholder": "\u200b", "style": "IPY_MODEL_fd46d5f5122842f0a6e97b2bdbce6119", "value": "Choose special characters to include"}}, "8bad27fd25234e02808f5f44bce2f9c0": {"model_name": "ToggleButtonsStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ToggleButtonsStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "button_width": "", "description_width": "initial", "font_weight": ""}}, "77d63245340f4e0fa2a9d2b07ddd9959": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": "0 0 0 20px", "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a55fddf186354f2f87c2a9f1e0454cfc": {"model_name": "ToggleButtonsModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ToggleButtonsModel", "_options_labels": [",./;[", "!@#~%", "^&*()"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ToggleButtonsView", "button_style": "", "description": "", "description_tooltip": null, "disabled": false, "icons": [], "index": 0, "layout": "IPY_MODEL_77d63245340f4e0fa2a9d2b07ddd9959", "style": "IPY_MODEL_8bad27fd25234e02808f5f44bce2f9c0", "tooltips": []}}, "0b07479448344bc8a3736a5609e8b886": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "45a7e896341b4d2ca5ecf4075fbdc9a4": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_6f8cfbad299d45efa3db26944aae42de", "IPY_MODEL_a55fddf186354f2f87c2a9f1e0454cfc"], "layout": "IPY_MODEL_68b6b67edd6546758bfd0cd2fad292be"}}, "acf12bf82dfa4fdda3be08521d0cb3f7": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "initial"}}, "77aad4c0804e44b4bc540f93c24c1115": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "decc1006ad644312ad0f463090d401fd": {"model_name": "CheckboxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "CheckboxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "CheckboxView", "description": "Include numbers in password", "description_tooltip": null, "disabled": false, "indent": true, "layout": "IPY_MODEL_77aad4c0804e44b4bc540f93c24c1115", "style": "IPY_MODEL_acf12bf82dfa4fdda3be08521d0cb3f7", "value": false}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '04.Widget_styling/04.06-OPTIONAL-container-exercises';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Scroll down to get to the interesting tables…" href="Table_of_widget_keys_and_style_keys.html" />
+    <link rel="prev" title="OPTIONAL Predefined widget styles" href="04.05-OPTIONAL-widget-specific-styling.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Book for Widgets - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Book for Widgets - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">01. Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01.Introduction/01.00-introduction.html">Jupyter Widgets Tutorial Introduction</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../01.Introduction/01.01-overview.html">Overview</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02. Widget Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/01.Interact/01.00-Using-Interact.html">Widgets without writing widgets: interact</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/01.Interact/01.01-OPTIONAL-More-About-Interact.html">OPTIONAL - More about interact</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/02.Basics/02.00-Widget_Basics.html">Simple Widget Introduction</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/03.WidgetList/03.00-widget-list.html">2.3-1 Ipywidgets Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/03.WidgetList/03.01-more-on-output-widget.html">2.3-2 Output</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03. Widget Events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.00-Widget_Events.html">3.1 Widgets Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.01-OPTIONAL-Widget_Events_2.html"><em>OPTIONAL</em> Three approaches to events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.02-OPTIONAL-Widget_Events_2_--_bad_password_generator%2C_version_1.html"><em>OPTIONAL</em> Password generator: <code class="docutils literal notranslate"><span class="pre">observe</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.03-OPTIONAL-Widget_Events_2_--_Separating_Concerns.html"><em>OPTIONAL</em> Separating the logic from the widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.04-OPTIONAL-Widget_Events_2--Separating_concerns%2C_object_oriented.html"><em>OPTIONAL</em> Separating the logic using classes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04. Widget Styling</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04.00-Layout-and-Styling-Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.01-widget-layout-and-styling.html">4.1 Layout and Styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.03-more-flexbox-layout.html">4.2 Flexbox Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.04-OPTIONAL-widget-label-styling.html">OPTIONAL - Widget label styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.05-OPTIONAL-widget-specific-styling.html">OPTIONAL Predefined widget styles</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><em>OPTIONAL</em> widget layout exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Table_of_widget_keys_and_style_keys.html">Scroll down to get to the interesting tables…</a></li>
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">05. Build Complex Libraries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../05.Build-complex-libs/05.00-Build-complex-libraries.html">5.1 Building Complex Widgets Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05.Build-complex-libs/05.01-Refactoring.html">5.2 Refactoring The Class-based Implementation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">06. More Widget Libraries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/06.00-More_widget_libraries.html">PREVIEW More Widget Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/06.01-ipycanvas.html">6.1 ipycanvas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/06.02-ipycytoscape.html">ipycytoscape: Interactive graphs</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/06.03-ipydatagrid.html">6.3 ipydatagrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/06.04-ipygany.html">6.4 ipygany</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/06.05-other-widget-libraries.html">Other widget libraries</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/bqplot.html">bqplot: complex interactive visualizations</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/ipyleaflet.html">ipyleaflet: Interactive maps</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/ipympl.html">EXTRAS ipympl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/ipytree.html">EXTRAS ipytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/ipyvolume.html">ipyvolume: 3D plotting in the notebook</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/ipyvuetify.html">Ipyvuetify</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/ipywebrtc.html">EXTRAS ipywebrtc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/pythreejs.html">pythreejs: 3D rendering in the browser</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/PyWWT.html">PyWWT - widget interface to the World Wide Telescope</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">07. Widgets Outside Notebook Context</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../07.Widgets_outside_notebook_context/07.00-voila.html"><em>PREVIEW</em> Dashboarding with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.Widgets_outside_notebook_context/07.01-voila-basics.html">7.1 Voila Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.Widgets_outside_notebook_context/07.02-voila-vuetify.html">Deploying voilà</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07.Widgets_outside_notebook_context/07.03-jupyterlite.html">Lightweight Jupyter Frontend running in the browser</a></li>
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">08. Ipywidgets 8</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../08.Ipywidgets_8/08.00-ipywidgets_8.html">ipywidgets 8</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F04.Widget_styling/04.06-OPTIONAL-container-exercises.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/04.Widget_styling/04.06-OPTIONAL-container-exercises.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>OPTIONAL widget layout exercises</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alignment-of-children">1. Alignment of children</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-from-scratch">2. Layout from scratch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improve-the-look-of-the-children">3. Improve the look of the children</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-a-better-special-character-control">i. A better special character control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-checkbox-whitespace-issues">ii. Checkbox whitespace issues</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#put-the-pieces-together">4 Put the pieces together</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alignment-of-children-additional-optional-challenges">Alignment of children: additional (optional) challenges</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="optional-widget-layout-exercises">
+<h1><em>OPTIONAL</em> widget layout exercises<a class="headerlink" href="#optional-widget-layout-exercises" title="Link to this heading">#</a></h1>
+<p>Earlier notebooks listed the container widgets in ipywidgets and how the widgets contained in them are laid out. As a reminder, the contents of the container are its <code class="docutils literal notranslate"><span class="pre">children</span></code>, a tuple of widgets. The distribution and alignment of the children are determined by the flex-box properties of the <code class="docutils literal notranslate"><span class="pre">layout</span></code> described in <a class="reference internal" href="#06-Widget-Styling.ipynb#The-Flexbox-layout"><span class="xref myst">Widget Styling</span></a>.</p>
+<p>This set of exercises leads up to a password generator widget that will be completed after discussing widget events. The generator allows the user to set the length of the password, choose a set of special characters to include, and decide whether to include any digits.</p>
+<p><strong>Eventually</strong> the widget will look like this:</p>
+<img src="images/pass-gen-demo.gif" alt="animated demo of password generator" width="80%">
+<p><strong>At the end of this notebook</strong> we will have laid out the controls shown below. We’ll come back to the generator in later notebooks after we have discussed widget events.</p>
+<img alt="part of password generator" src="images/05-container-exercises-ex4.png" width="80%">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="alignment-of-children">
+<h2>1. Alignment of children<a class="headerlink" href="#alignment-of-children" title="Link to this heading">#</a></h2>
+<p>The cell below defines three children that are different sizes and lays them out in a horizontal box. Adjust the two layout properties in the code cell below so that the displayed hbox matches the image below.</p>
+<p><img alt="final layout of widgets" src="../_images/container-exercises1-final-layout.png" /></p>
+<p>You may need to look back at the <a class="reference internal" href="#06-Widget_Styling.ipynb"><span class="xref myst">styling notebook</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Click me&#39;</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Textarea</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Words here:&#39;</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">valid</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Valid</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;check&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">container</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">()</span>
+<span class="n">container</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">button</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">valid</span><span class="p">]</span>
+<span class="n">container</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="s1">&#39;100%&#39;</span>
+
+<span class="c1"># The border is set here just to make it easier to see the position of </span>
+<span class="c1"># the children with respect to the box.</span>
+<span class="n">container</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">border</span> <span class="o">=</span> <span class="s1">&#39;2px solid grey&#39;</span>
+<span class="n">container</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="s1">&#39;250px&#39;</span>
+
+<span class="c1"># ↓↓↓↓↓↓↓ Adjust these properties ↓↓↓↓↓↓↓↓↓</span>
+<span class="n">container</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">justify_content</span> <span class="o">=</span> <span class="s1">&#39;flex-start&#39;</span>
+<span class="n">container</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">align_items</span> <span class="o">=</span> <span class="s1">&#39;flex-start&#39;</span>
+<span class="c1"># ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑</span>
+
+<span class="n">container</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "b09fc77083424e51bc1dd9a14f72015c"}</script></div>
+</div>
+</section>
+<section id="layout-from-scratch">
+<h2>2. Layout from scratch<a class="headerlink" href="#layout-from-scratch" title="Link to this heading">#</a></h2>
+<p>Three child widgets are defined in the cell below. Compose them into a vertical box laid out as shown in this image:</p>
+<p><img alt="layout of vertical box" src="../_images/container-exercises2-final-layout.png" /></p>
+<p>You should be able to accomplish that layout by setting the appropriate <code class="docutils literal notranslate"><span class="pre">layout</span></code> attribute(s) on <code class="docutils literal notranslate"><span class="pre">vbox</span></code> (don’t forget to add the children first).</p>
+<p>A box is drawn around the container to make it easier to see where the children are placed</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load solutions/password-ex2.py</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Include numbers in password&#39;</span><span class="p">)</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s1">&#39;The generated password is:&#39;</span><span class="p">)</span>
+<span class="n">toggles</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButtons</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Type of special characters to include&#39;</span><span class="p">,</span>
+                                <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;,./;[&#39;</span><span class="p">,</span> <span class="s1">&#39;!@#~%&#39;</span><span class="p">,</span> <span class="s1">&#39;^&amp;*()&#39;</span><span class="p">],</span>
+                                <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s1">&#39;initial&#39;</span><span class="p">})</span>
+<span class="n">vbox</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">()</span>
+
+<span class="c1"># The border is set here just to make it easier to see the position of </span>
+<span class="c1"># the children with respect to the box.</span>
+<span class="n">vbox</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">border</span> <span class="o">=</span> <span class="s1">&#39;2px solid grey&#39;</span>
+<span class="n">vbox</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="s1">&#39;250px&#39;</span>
+
+<span class="c1"># ↓↓↓↓↓↓↓  Insert your layout settings here ↓↓↓↓↓↓↓ </span>
+
+<span class="c1"># Don&#39;t forget to add the children...</span>
+
+<span class="n">vbox</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "9476836c82194981ab454c99ec05cc80"}</script></div>
+</div>
+</section>
+<section id="improve-the-look-of-the-children">
+<h2>3. Improve the look of the children<a class="headerlink" href="#improve-the-look-of-the-children" title="Link to this heading">#</a></h2>
+<p>The “special character” toggle buttons would really look better if the label was above the buttons, and the checkbox would look better without the whitespace to its left.</p>
+<section id="i-a-better-special-character-control">
+<h3>i. A better special character control<a class="headerlink" href="#i-a-better-special-character-control" title="Link to this heading">#</a></h3>
+<p>In the cell below, construct a widget with the text “Type of special characters to include” above the <code class="docutils literal notranslate"><span class="pre">ToggleButtons</span></code>, with all of the content left-aligned, and the toggle buttons slightly indented.</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">margin</span></code> property of the layout to indent.</p>
+<p>It should look like this when you are done:</p>
+<div style="width:70%; margin:20px">
+![special characters widget](images/container-exercises-special-chars.png)
+</div>
+<p>This is the second time we’ve needed a vbox with all the items left-aligned, so let’s start out with a <code class="docutils literal notranslate"><span class="pre">Layout</span></code> widget that defines that format</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load solutions/password-ex3i.py</span>
+
+<span class="n">vbox_left_layout</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">align_items</span><span class="o">=</span><span class="s1">&#39;flex-start&#39;</span><span class="p">)</span>
+
+<span class="n">label</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Choose special characters to include&#39;</span><span class="p">)</span>
+<span class="n">toggles</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButtons</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                                <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;,./;[&#39;</span><span class="p">,</span> <span class="s1">&#39;!@#~%&#39;</span><span class="p">,</span> <span class="s1">&#39;^&amp;*()&#39;</span><span class="p">],</span>
+                                <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s1">&#39;initial&#39;</span><span class="p">})</span>
+
+<span class="c1"># Set the margins to control the indentation. </span>
+<span class="c1"># The order is top right bottom left</span>
+<span class="n">toggles</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">margin</span> <span class="o">=</span> <span class="s1">&#39;0 0 0 20px&#39;</span>
+
+<span class="n">better_toggles</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">label</span><span class="p">,</span> <span class="n">toggles</span><span class="p">])</span>
+<span class="n">better_toggles</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">vbox_left_layout</span>
+<span class="n">better_toggles</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "45a7e896341b4d2ca5ecf4075fbdc9a4"}</script></div>
+</div>
+</section>
+<section id="ii-checkbox-whitespace-issues">
+<h3>ii. Checkbox whitespace issues<a class="headerlink" href="#ii-checkbox-whitespace-issues" title="Link to this heading">#</a></h3>
+<p>The checkbox in the example above has unnecessary whitespace to the left of the box. Setting the <code class="docutils literal notranslate"><span class="pre">description_width</span></code> to <code class="docutils literal notranslate"><span class="pre">initial</span></code> removes it, so do that below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load solutions/password-ex3ii.py</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Include numbers in password&#39;</span><span class="p">,</span>
+                          <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s1">&#39;initial&#39;</span><span class="p">})</span>
+<span class="n">numbers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "decc1006ad644312ad0f463090d401fd"}</script></div>
+</div>
+</section>
+</section>
+<section id="put-the-pieces-together">
+<h2>4 Put the pieces together<a class="headerlink" href="#put-the-pieces-together" title="Link to this heading">#</a></h2>
+<p>Use your improved toggles and number checkbox to re-do the password generator interface from exercise 2, above.</p>
+<p>When you are done it should look like this:</p>
+<p><img alt="part of password generator" src="../_images/05-container-exercises-ex4.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load solutions/password-ex4.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="alignment-of-children-additional-optional-challenges">
+<h3>Alignment of children: additional (optional) challenges<a class="headerlink" href="#alignment-of-children-additional-optional-challenges" title="Link to this heading">#</a></h3>
+<p>Using only <code class="docutils literal notranslate"><span class="pre">layout</span></code> attributes make the widget above:</p>
+<ul class="simple">
+<li><p>Display the children in reverse order (<strong>not</strong> by just reversing the list of children).</p></li>
+<li><p>Display the children vertically instead of horzontally.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "widgets-tutorial"
+        },
+        kernelOptions: {
+            name: "widgets-tutorial",
+            path: "./04.Widget_styling"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'widgets-tutorial'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04.05-OPTIONAL-widget-specific-styling.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">OPTIONAL Predefined widget styles</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Table_of_widget_keys_and_style_keys.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Scroll down to get to the interesting tables…</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alignment-of-children">1. Alignment of children</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-from-scratch">2. Layout from scratch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improve-the-look-of-the-children">3. Improve the look of the children</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-a-better-special-character-control">i. A better special character control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-checkbox-whitespace-issues">ii. Checkbox whitespace issues</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#put-the-pieces-together">4 Put the pieces together</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alignment-of-children-additional-optional-challenges">Alignment of children: additional (optional) challenges</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By IroaseP(resigned)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

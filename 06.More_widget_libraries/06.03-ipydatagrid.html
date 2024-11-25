@@ -1,0 +1,1246 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ipydatagrid: fast, performant data grid &#8212; Book for Widgets</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '06.More_widget_libraries/06.03-ipydatagrid';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ipygany: Interactive library for 3-D mesh analysis" href="06.04-ipygany.html" />
+    <link rel="prev" title="ipycytoscape: Interactive graphs" href="06.02-ipycytoscape.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Book for Widgets - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Book for Widgets - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">01. Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01.Introduction/01.00-introduction.html">Jupyter Widgets Tutorial Introduction</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../01.Introduction/01.01-overview.html">Overview</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02. Widget Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/01.Interact/01.00-Using-Interact.html">Widgets without writing widgets: interact</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/01.Interact/01.01-OPTIONAL-More-About-Interact.html">OPTIONAL - More about interact</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/02.Basics/02.00-Widget_Basics.html">Simple Widget Introduction</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/03.WidgetList/03.00-widget-list.html">2.3-1 Ipywidgets Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/03.WidgetList/03.01-more-on-output-widget.html">2.3-2 Output</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03. Widget Events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.00-Widget_Events.html">3.1 Widgets Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.01-OPTIONAL-Widget_Events_2.html"><em>OPTIONAL</em> Three approaches to events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.02-OPTIONAL-Widget_Events_2_--_bad_password_generator%2C_version_1.html"><em>OPTIONAL</em> Password generator: <code class="docutils literal notranslate"><span class="pre">observe</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.03-OPTIONAL-Widget_Events_2_--_Separating_Concerns.html"><em>OPTIONAL</em> Separating the logic from the widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.04-OPTIONAL-Widget_Events_2--Separating_concerns%2C_object_oriented.html"><em>OPTIONAL</em> Separating the logic using classes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04. Widget Styling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../04.Widget_styling/04.00-Layout-and-Styling-Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.Widget_styling/04.01-widget-layout-and-styling.html">4.1 Layout and Styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.Widget_styling/04.03-more-flexbox-layout.html">4.2 Flexbox Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.Widget_styling/04.04-OPTIONAL-widget-label-styling.html">OPTIONAL - Widget label styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.Widget_styling/04.05-OPTIONAL-widget-specific-styling.html">OPTIONAL Predefined widget styles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.Widget_styling/04.06-OPTIONAL-container-exercises.html"><em>OPTIONAL</em> widget layout exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.Widget_styling/Table_of_widget_keys_and_style_keys.html">Scroll down to get to the interesting tables…</a></li>
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">05. Build Complex Libraries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../05.Build-complex-libs/05.00-Build-complex-libraries.html">5.1 Building Complex Widgets Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05.Build-complex-libs/05.01-Refactoring.html">5.2 Refactoring The Class-based Implementation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">06. More Widget Libraries</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06.00-More_widget_libraries.html">PREVIEW More Widget Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06.01-ipycanvas.html">6.1 ipycanvas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06.02-ipycytoscape.html">ipycytoscape: Interactive graphs</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6.3 ipydatagrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06.04-ipygany.html">6.4 ipygany</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06.05-other-widget-libraries.html">Other widget libraries</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="extras/bqplot.html">bqplot: complex interactive visualizations</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="extras/ipyleaflet.html">ipyleaflet: Interactive maps</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="extras/ipympl.html">EXTRAS ipympl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extras/ipytree.html">EXTRAS ipytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extras/ipyvolume.html">ipyvolume: 3D plotting in the notebook</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="extras/ipyvuetify.html">Ipyvuetify</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="extras/ipywebrtc.html">EXTRAS ipywebrtc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extras/pythreejs.html">pythreejs: 3D rendering in the browser</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="extras/PyWWT.html">PyWWT - widget interface to the World Wide Telescope</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">07. Widgets Outside Notebook Context</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../07.Widgets_outside_notebook_context/07.00-voila.html"><em>PREVIEW</em> Dashboarding with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.Widgets_outside_notebook_context/07.01-voila-basics.html">7.1 Voila Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.Widgets_outside_notebook_context/07.02-voila-vuetify.html">Deploying voilà</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07.Widgets_outside_notebook_context/07.03-jupyterlite.html">Lightweight Jupyter Frontend running in the browser</a></li>
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">08. Ipywidgets 8</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../08.Ipywidgets_8/08.00-ipywidgets_8.html">ipywidgets 8</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F06.More_widget_libraries/06.03-ipydatagrid.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/06.More_widget_libraries/06.03-ipydatagrid.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ipydatagrid: fast, performant data grid</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#https-github-com-bloomberg-ipydatagrid">https://github.com/bloomberg/ipydatagrid</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-any-dataset">Use any dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-your-pandas-dataframe-to-a-datagrid-it-just-works">Convert your pandas DataFrame to a datagrid - it ‘just works’</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#style-your-data-grid-with-custom-renderers-based-on-vega-expressions">Style your data grid with custom renderers based on Vega expressions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-styling-to-column-and-row-headers">Apply styling to column and row headers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-sorting-and-filtering-functionality-which-you-can-trigger-from-both-python-and-directly-via-the-gui">Built-in sorting and filtering functionality which you can trigger from both Python and directly via the GUI.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-formatting-based-on-another-cell">Conditional formatting based on another cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-index-and-nested-columns-dataframes-are-also-supported">Multi-index and nested columns DataFrames are also supported</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-way-selections-model-at-your-disposal">Two-way selections model at your disposal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-way-cell-editing-is-possible">Two-way cell editing is possible</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#events-and-integration-with-ipywidgets">Events and integration with <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-with-the-barrenderer">An example with the BarRenderer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-bqplot">Integration with <code class="docutils literal notranslate"><span class="pre">bqplot</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ipydatagrid-fast-performant-data-grid">
+<h1><code class="docutils literal notranslate"><span class="pre">ipydatagrid</span></code>: fast, performant data grid<a class="headerlink" href="#ipydatagrid-fast-performant-data-grid" title="Link to this heading">#</a></h1>
+<section id="https-github-com-bloomberg-ipydatagrid">
+<h2><a class="github reference external" href="https://github.com/bloomberg/ipydatagrid">bloomberg/ipydatagrid</a><a class="headerlink" href="#https-github-com-bloomberg-ipydatagrid" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ipydatagrid</span></code> is a complete data grid solution providing full integration with pandas DataFrames without compromising on performance:</p>
+<ul class="simple">
+<li><p>built-in sorting and filtering</p></li>
+<li><p>full integration with the jupyter-widgets ecosystem</p></li>
+<li><p>highly customisable renderers</p></li>
+<li><p>complete two-way data binding between Python and the front-end</p></li>
+<li><p>supports Vega expressions for conditional formatting and styling</p></li>
+</ul>
+<p><strong>Installation</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>ipydatagrid
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipydatagrid</span> <span class="kn">import</span> <span class="n">DataGrid</span><span class="p">,</span> <span class="n">TextRenderer</span><span class="p">,</span> <span class="n">BarRenderer</span><span class="p">,</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">VegaExpr</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">ipydatagrid</span> <span class="kn">import</span> <span class="n">DataGrid</span><span class="p">,</span> <span class="n">TextRenderer</span><span class="p">,</span> <span class="n">BarRenderer</span><span class="p">,</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">VegaExpr</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;ipydatagrid&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="use-any-dataset">
+<h3>Use any dataset<a class="headerlink" href="#use-any-dataset" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Numpy/pandas</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">p_t</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">260</span>
+<span class="n">stock_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span><span class="sa">f</span><span class="s1">&#39;Stock </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">:</span> <span class="n">p_t</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span>
+<span class="p">)</span>
+
+<span class="c1"># Requests/JSON</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/bloomberg/ipydatagrid/main/examples/cars.json&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">cars_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+
+
+<span class="c1"># Random matrix</span>
+<span class="n">rand_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span><span class="sa">f</span><span class="s1">&#39;Column </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">chr</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">65</span><span class="p">,</span> <span class="mi">91</span><span class="p">)]}</span>
+<span class="p">)</span>
+
+<span class="c1"># Small grid</span>
+<span class="n">small_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Col </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Row </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="p">)</span>
+
+<span class="c1"># Multi-index</span>
+<span class="n">top_level</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Value Factors&#39;</span><span class="p">,</span> <span class="s1">&#39;Value Factors&#39;</span><span class="p">,</span> <span class="s1">&#39;Momentum Factors&#39;</span><span class="p">,</span> <span class="s1">&#39;Momentum Factors&#39;</span><span class="p">]</span>
+<span class="n">bottom_level</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Factor A&#39;</span><span class="p">,</span> <span class="s1">&#39;Factor B&#39;</span><span class="p">,</span> <span class="s1">&#39;Factor C&#39;</span><span class="p">,</span> <span class="s1">&#39;Factor D&#39;</span><span class="p">]</span>
+
+<span class="n">nested_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+                         <span class="n">columns</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_arrays</span><span class="p">([</span><span class="n">top_level</span><span class="p">,</span> <span class="n">bottom_level</span><span class="p">]),</span>
+                         <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39;Security </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">]],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Ticker&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="convert-your-pandas-dataframe-to-a-datagrid-it-just-works">
+<h3>Convert your pandas DataFrame to a datagrid - it ‘just works’<a class="headerlink" href="#convert-your-pandas-dataframe-to-a-datagrid-it-just-works" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cars_data</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">DataGrid</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">grid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Additional constructor options</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">DataGrid</span><span class="p">(</span>
+    <span class="n">dataframe</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">base_row_size</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">base_column_size</span><span class="o">=</span><span class="mi">92</span><span class="p">,</span>
+    <span class="n">base_row_header_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+    <span class="n">base_column_header_size</span><span class="o">=</span><span class="mi">40</span>
+<span class="p">)</span>
+<span class="n">grid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="o">.</span><span class="n">header_visibility</span> <span class="o">=</span> <span class="s1">&#39;row&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="o">.</span><span class="n">header_visibility</span> <span class="o">=</span> <span class="s1">&#39;column&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="o">.</span><span class="n">header_visibility</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="o">.</span><span class="n">header_visibility</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="style-your-data-grid-with-custom-renderers-based-on-vega-expressions">
+<h3>Style your data grid with custom renderers based on Vega expressions<a class="headerlink" href="#style-your-data-grid-with-custom-renderers-based-on-vega-expressions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Custom cell renderers can be defined for the entire grid or column-wise.</p></li>
+<li><p>Two types of cell renderers are currently available: <code class="docutils literal notranslate"><span class="pre">TextRenderer</span></code> and <code class="docutils literal notranslate"><span class="pre">BarRenderer</span></code>.</p></li>
+<li><p>Most of the TextRenderer/BarRenderer attributes (<code class="docutils literal notranslate"><span class="pre">background_color</span></code>, <code class="docutils literal notranslate"><span class="pre">text_color</span></code> etc.) can either be a <code class="docutils literal notranslate"><span class="pre">value</span></code>, a <code class="docutils literal notranslate"><span class="pre">bqplot</span></code> scale or a <code class="docutils literal notranslate"><span class="pre">VegaExpr</span></code> or <code class="docutils literal notranslate"><span class="pre">Expr</span></code> instance.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">VegaExpr</span></code> class allows you to define an attribute value as a result of a Vega-expression (see <a class="reference external" href="https://vega.github.io/vega/docs/expressions/">https://vega.github.io/vega/docs/expressions/</a>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">background_color</span> <span class="o">=</span> <span class="n">VegaExpr</span><span class="p">(</span><span class="s2">&quot;value &lt; 150 ? &#39;red&#39; : &#39;green&#39;&quot;</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>You can look at the vega-expression documentation for more information about available constants and functions. In the scope of the expression are also available: value: cell value, x and y: cell position in pixel, width and height of the cell, row and column: cell position.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bqplot</span> <span class="kn">import</span> <span class="n">LinearScale</span><span class="p">,</span> <span class="n">ColorScale</span><span class="p">,</span> <span class="n">OrdinalColorScale</span><span class="p">,</span> <span class="n">OrdinalScale</span>
+<span class="kn">from</span> <span class="nn">py2vega.functions.color</span> <span class="kn">import</span> <span class="n">rgb</span>
+
+<span class="k">def</span> <span class="nf">horsepower_coloring</span><span class="p">(</span><span class="n">cell</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">cell</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;red&quot;</span>
+    <span class="k">elif</span> <span class="n">cell</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">150</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;orange&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;green&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">weight_coloring</span><span class="p">(</span><span class="n">cell</span><span class="p">):</span>
+    <span class="n">scaled_value</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">cell</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">4500</span> <span class="k">else</span> <span class="n">cell</span><span class="o">.</span><span class="n">value</span> <span class="o">/</span> <span class="mi">4500</span>
+    <span class="n">color_value</span> <span class="o">=</span> <span class="n">scaled_value</span> <span class="o">*</span> <span class="mi">255</span>
+
+    <span class="k">return</span> <span class="n">rgb</span><span class="p">(</span><span class="n">color_value</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<span class="n">renderers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Acceleration&quot;</span><span class="p">:</span> <span class="n">BarRenderer</span><span class="p">(</span>
+        <span class="n">horizontal_alignment</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+        <span class="n">bar_color</span><span class="o">=</span><span class="n">ColorScale</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">),</span>
+        <span class="n">bar_value</span><span class="o">=</span><span class="n">LinearScale</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;Cylinders&quot;</span><span class="p">:</span> <span class="n">TextRenderer</span><span class="p">(</span>
+        <span class="n">background_color</span><span class="o">=</span><span class="n">Expr</span><span class="p">(</span><span class="s1">&#39;&quot;grey&quot; if cell.row % 2 else default_value&#39;</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;Displacement&quot;</span><span class="p">:</span> <span class="n">TextRenderer</span><span class="p">(</span>
+        <span class="n">text_color</span><span class="o">=</span><span class="n">ColorScale</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">97</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">455</span><span class="p">),</span>
+        <span class="n">font</span><span class="o">=</span><span class="n">Expr</span><span class="p">(</span>
+            <span class="s2">&quot;&#39;16px sans-serif&#39; if cell.value &gt; 400 else &#39;12px sans-serif&#39;&quot;</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;Horsepower&quot;</span><span class="p">:</span> <span class="n">TextRenderer</span><span class="p">(</span>
+        <span class="n">text_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="n">Expr</span><span class="p">(</span><span class="n">horsepower_coloring</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;Miles_per_Gallon&quot;</span><span class="p">:</span> <span class="n">TextRenderer</span><span class="p">(</span>
+        <span class="n">background_color</span><span class="o">=</span><span class="n">Expr</span><span class="p">(</span><span class="s1">&#39;&quot;grey&quot; if cell.value is None else default_value&#39;</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="n">TextRenderer</span><span class="p">(</span>
+        <span class="n">background_color</span><span class="o">=</span><span class="n">Expr</span><span class="p">(</span>
+            <span class="s1">&#39;rgb(0, 100, 255) if &quot;chevrolet&quot; in cell.value or &quot;ford&quot; in cell.value else default_value&#39;</span>
+        <span class="p">)</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;Origin&quot;</span><span class="p">:</span> <span class="n">TextRenderer</span><span class="p">(</span>
+        <span class="n">text_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+        <span class="n">background_color</span><span class="o">=</span><span class="n">OrdinalColorScale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;USA&quot;</span><span class="p">,</span> <span class="s2">&quot;Japan&quot;</span><span class="p">,</span> <span class="s2">&quot;Europe&quot;</span><span class="p">]),</span>
+        <span class="n">horizontal_alignment</span><span class="o">=</span><span class="n">Expr</span><span class="p">(</span>
+            <span class="s2">&quot;&#39;right&#39; if cell.value in [&#39;USA&#39;, &#39;Japan&#39;] else &#39;left&#39;&quot;</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;Weight_in_lbs&quot;</span><span class="p">:</span> <span class="n">TextRenderer</span><span class="p">(</span>
+        <span class="n">text_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="n">Expr</span><span class="p">(</span><span class="n">weight_coloring</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;Year&quot;</span><span class="p">:</span> <span class="n">TextRenderer</span><span class="p">(</span><span class="n">text_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="n">grid</span><span class="o">.</span><span class="n">renderers</span> <span class="o">=</span> <span class="n">renderers</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">renderers</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span> \
+    <span class="o">.</span><span class="n">background_color</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;&quot;green&quot; if &quot;pontiac&quot; in cell.value or &quot;citroen&quot; in cell.value else default_value&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">renderers</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">background_color</span> <span class="o">=</span> <span class="s2">&quot;yellow&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="apply-styling-to-column-and-row-headers">
+<h3>Apply styling to column and row headers<a class="headerlink" href="#apply-styling-to-column-and-row-headers" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="o">.</span><span class="n">header_renderer</span> <span class="o">=</span> <span class="n">TextRenderer</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">Expr</span><span class="p">(</span><span class="s1">&#39;&quot;salmon&quot; if cell.value == &quot;Horsepower&quot; else &quot;skyblue&quot;&#39;</span><span class="p">),</span>
+    <span class="n">font</span><span class="o">=</span><span class="s1">&#39;italic small-caps bold 12px/30px Georgia, serif&#39;</span>
+<span class="p">)</span>
+
+<span class="n">renderers</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">TextRenderer</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;slateblue&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">renderers</span> <span class="o">=</span> <span class="n">renderers</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="built-in-sorting-and-filtering-functionality-which-you-can-trigger-from-both-python-and-directly-via-the-gui">
+<h3>Built-in sorting and filtering functionality which you can trigger from both Python and directly via the GUI.<a class="headerlink" href="#built-in-sorting-and-filtering-functionality-which-you-can-trigger-from-both-python-and-directly-via-the-gui" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filtering based on car origin and sorting based on displacement</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;filter&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;operator&quot;</span><span class="p">:</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;columnIndex&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sort&quot;</span><span class="p">,</span> <span class="s2">&quot;columnIndex&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conditional-formatting-based-on-another-cell">
+<h3>Conditional formatting based on another cell<a class="headerlink" href="#conditional-formatting-based-on-another-cell" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">format_based_on_other_column</span><span class="p">(</span><span class="n">cell</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;green&quot;</span> <span class="k">if</span> <span class="n">cell</span><span class="o">.</span><span class="n">column</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">cell</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Return&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+<span class="n">signal_column_formatting</span> <span class="o">=</span> <span class="n">TextRenderer</span><span class="p">(</span>
+    <span class="n">text_color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">Expr</span><span class="p">(</span><span class="n">format_based_on_other_column</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">renderers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Signal&quot;</span><span class="p">:</span> <span class="n">signal_column_formatting</span><span class="p">,</span>
+    <span class="s2">&quot;Return&quot;</span><span class="p">:</span> <span class="n">TextRenderer</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;seashell&#39;</span><span class="p">,</span>
+                           <span class="n">text_color</span><span class="o">=</span><span class="n">VegaExpr</span><span class="p">(</span><span class="s1">&#39;cell.value &gt; 0 ? &quot;green&quot; : &quot;firebrick&quot;&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">conditional_grid</span> <span class="o">=</span> <span class="n">DataGrid</span><span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span><span class="s2">&quot;Stock&quot;</span><span class="p">:</span> <span class="s2">&quot;A B C D&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> 
+         <span class="s2">&quot;Return&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.11</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.20</span><span class="p">],</span> 
+         <span class="s2">&quot;Signal&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Buy&quot;</span><span class="p">,</span> <span class="s2">&quot;Sell&quot;</span><span class="p">,</span> <span class="s2">&quot;Buy&quot;</span><span class="p">,</span> <span class="s2">&quot;Sell&quot;</span><span class="p">]}</span>
+    <span class="p">),</span>
+    <span class="n">column_widths</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Stock&quot;</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span> <span class="s2">&quot;Return&quot;</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span>  <span class="s2">&quot;Signal&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">},</span>
+    <span class="n">base_row_size</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">renderers</span><span class="o">=</span><span class="n">renderers</span><span class="p">,</span>
+    <span class="n">layout</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="s2">&quot;150px&quot;</span><span class="p">},</span>
+<span class="p">)</span>
+
+<span class="n">conditional_grid</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="multi-index-and-nested-columns-dataframes-are-also-supported">
+<h3>Multi-index and nested columns DataFrames are also supported<a class="headerlink" href="#multi-index-and-nested-columns-dataframes-are-also-supported" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nested_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns_renderer</span> <span class="o">=</span> <span class="n">TextRenderer</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;dimgray&#39;</span><span class="p">,</span>
+    <span class="n">horizontal_alignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+<span class="n">renderers</span><span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;(&#39;Ticker&#39;, &#39;&#39;)&quot;</span><span class="p">:</span> <span class="n">TextRenderer</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;dimgray&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">default_renderer</span> <span class="o">=</span> <span class="n">TextRenderer</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">VegaExpr</span><span class="p">(</span><span class="s1">&#39;cell.value &gt; 0 ? &quot;steelblue&quot; : &quot;seagreen&quot;&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">nested_grid</span> <span class="o">=</span> <span class="n">DataGrid</span><span class="p">(</span><span class="n">nested_df</span><span class="p">,</span>
+                       <span class="n">base_column_size</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
+                       <span class="n">column_widths</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;(&#39;Ticker&#39;, &#39;&#39;)&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">},</span>
+                       <span class="n">layout</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;height&#39;</span><span class="p">:</span><span class="s1">&#39;140px&#39;</span><span class="p">},</span>
+                       <span class="n">renderers</span><span class="o">=</span><span class="n">renderers</span><span class="p">,</span>
+                       <span class="n">default_renderer</span><span class="o">=</span><span class="n">default_renderer</span><span class="p">,</span>
+                       <span class="n">header_renderer</span><span class="o">=</span><span class="n">columns_renderer</span><span class="p">)</span>
+
+<span class="n">nested_grid</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="two-way-selections-model-at-your-disposal">
+<h3>Two-way selections model at your disposal<a class="headerlink" href="#two-way-selections-model-at-your-disposal" title="Link to this heading">#</a></h3>
+<p>DataGrid cells can be selected using mouse by simply clicking and dragging over the cells. Pressing Cmd / Ctrl key during selection will add to existing selections. Pressing Shift key allows selection of regions between two clicks.</p>
+<p>DataGrid supports three modes of selection <code class="docutils literal notranslate"><span class="pre">cell</span></code>, <code class="docutils literal notranslate"><span class="pre">row</span></code>, <code class="docutils literal notranslate"><span class="pre">column</span></code>. In order to disable selections, selection mode can be set to <code class="docutils literal notranslate"><span class="pre">none</span></code> which is the default setting.</p>
+<p>Selection Modes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cell</span></code>: Clicking on grid will select only the cell under mouse cursor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">row</span></code>: Clicking on grid will select all the cells on the row under mouse cursor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">column</span></code>: Clicking on grid will select all the cells on the column under mouse cursor</p></li>
+</ul>
+<p>You can clear all selections by hitting the <code class="docutils literal notranslate"><span class="pre">esc</span></code> key.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_grid</span> <span class="o">=</span> <span class="n">DataGrid</span><span class="p">(</span><span class="n">stock_df</span><span class="p">,</span> <span class="n">selection_mode</span><span class="o">=</span><span class="s1">&#39;cell&#39;</span><span class="p">)</span>
+<span class="n">sel_grid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Select from the UI and retrieve on the Python side</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_grid</span><span class="o">.</span><span class="n">selections</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also access the selected cell values</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_grid</span><span class="o">.</span><span class="n">selected_cell_values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Select from the Python side and see selections highlighted on the UI.</p>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">row1</span></code>: start row (starts from 0).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">row2</span></code>: end row (starts from 0).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">column1</span></code>: start column.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">column2</span></code>: end column.</p></li>
+</ul>
+<p>We can automatically clear any existing selections by passing a value for <code class="docutils literal notranslate"><span class="pre">clear_mode</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">current</span></code>: clear last selection</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">all</span></code>: clear all existing selections</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">none</span></code>: do not clear selections (default)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select top left corner of grid</span>
+<span class="n">sel_grid</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">row1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">row2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">clear_mode</span><span class="o">=</span><span class="s1">&#39;current&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clear selection</span>
+<span class="n">sel_grid</span><span class="o">.</span><span class="n">clear_selection</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can select individual sells by omitting <code class="docutils literal notranslate"><span class="pre">row2</span></code> and <code class="docutils literal notranslate"><span class="pre">column2</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_grid</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When working with large grids, we can opt to use the <code class="docutils literal notranslate"><span class="pre">selected_cell_iterator</span></code>. It will yield values for each loop iteration, avoiding the need to store all selections in a list, in advance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">sel_grid</span><span class="o">.</span><span class="n">selected_cell_iterator</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cell value: </span><span class="si">{</span><span class="n">cell</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can modify selections in place by passing a list of selections</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_grid</span><span class="o">.</span><span class="n">selections</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;r1&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s2">&quot;r2&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;c1&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;c2&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;r1&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;r2&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;c1&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;c2&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;r1&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;r2&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;c1&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;c2&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;r1&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s2">&quot;r2&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s2">&quot;c1&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;c2&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Row selection mode</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_grid</span><span class="o">.</span><span class="n">selection_mode</span><span class="o">=</span><span class="s1">&#39;row&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">260</span><span class="p">):</span>
+    <span class="n">sel_grid</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="two-way-cell-editing-is-possible">
+<h3>Two-way cell editing is possible<a class="headerlink" href="#two-way-cell-editing-is-possible" title="Link to this heading">#</a></h3>
+<p>Just pass <code class="docutils literal notranslate"><span class="pre">editable=True</span></code> to the grid’s constructorand you’re good to go (grids are not editable by default).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">small_grid</span> <span class="o">=</span> <span class="n">DataGrid</span><span class="p">(</span><span class="n">small_df</span><span class="p">,</span> 
+                      <span class="n">editable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                      <span class="n">default_renderer</span><span class="o">=</span><span class="n">TextRenderer</span><span class="p">(</span>
+                          <span class="n">background_color</span><span class="o">=</span><span class="n">VegaExpr</span><span class="p">(</span><span class="s2">&quot;cell.value === 1 ? &#39;limegreen&#39; : &#39;hotpink&#39;&quot;</span><span class="p">)</span>
+                      <span class="p">),</span>
+                      <span class="n">layout</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="s1">&#39;250px&#39;</span><span class="p">})</span>
+<span class="n">small_grid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can change values directly in the UI by double clicking a cell and changing the value. You can navigate the grid using the keyboard. You can use the arrow keys or the grid’s <strong>cursor</strong>:</p>
+<ul class="simple">
+<li><p><strong>Down</strong>: Enter</p></li>
+<li><p><strong>Up</strong>: Shift + Enter</p></li>
+<li><p><strong>Right</strong>: Tab</p></li>
+<li><p><strong>Left</strong>: Shift + Tab</p></li>
+</ul>
+<p>..or you can change it directly from the Python side</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Returns a boolean to indicate whether operations was successful</span>
+<span class="n">small_grid</span><span class="o">.</span><span class="n">set_cell_value</span><span class="p">(</span><span class="s1">&#39;Col 0&#39;</span><span class="p">,</span> <span class="s1">&#39;Row 9&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Sets value based on row name</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">small_grid</span><span class="o">.</span><span class="n">set_cell_value_by_index</span><span class="p">(</span><span class="s1">&#39;Col 9&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Sets value based on row index</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="events-and-integration-with-ipywidgets">
+<h3>Events and integration with <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code><a class="headerlink" href="#events-and-integration-with-ipywidgets" title="Link to this heading">#</a></h3>
+<p>Listen to cell change events</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cell_changed</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+    <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">col_index</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">e</span><span class="p">[</span><span class="s1">&#39;row&#39;</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="s1">&#39;column&#39;</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="s1">&#39;column_index&#39;</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The cell at row </span><span class="si">{</span><span class="n">row</span><span class="si">}</span><span class="s1">, column &quot;</span><span class="si">{</span><span class="n">column</span><span class="si">}</span><span class="s1">&quot; (index </span><span class="si">{</span><span class="n">col_index</span><span class="si">}</span><span class="s1">), changed to </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+<span class="n">small_grid</span><span class="o">.</span><span class="n">on_cell_change</span><span class="p">(</span><span class="n">cell_changed</span><span class="p">)</span>
+<span class="n">small_grid</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="an-example-with-the-barrenderer">
+<h3>An example with the BarRenderer<a class="headerlink" href="#an-example-with-the-barrenderer" title="Link to this heading">#</a></h3>
+<p>Renders cell values as horizontal bars based on a scale. <code class="docutils literal notranslate"><span class="pre">ipydatagrid</span></code> has two renderers - <code class="docutils literal notranslate"><span class="pre">TextRenderer</span></code>, which is the default one we’ve seen, and <code class="docutils literal notranslate"><span class="pre">BarRenderer</span></code>, which we will use now.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bqplot</span> <span class="kn">import</span> <span class="n">LinearScale</span><span class="p">,</span> <span class="n">ColorScale</span>
+<span class="kn">from</span> <span class="nn">ipydatagrid</span> <span class="kn">import</span> <span class="n">DataGrid</span><span class="p">,</span> <span class="n">BarRenderer</span>
+
+<span class="n">linear_scale</span> <span class="o">=</span> <span class="n">LinearScale</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">color_scale</span> <span class="o">=</span> <span class="n">ColorScale</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bar_renderer</span> <span class="o">=</span> <span class="n">BarRenderer</span><span class="p">(</span>
+    <span class="n">bar_color</span><span class="o">=</span><span class="n">color_scale</span><span class="p">,</span>
+    <span class="n">bar_value</span><span class="o">=</span><span class="n">linear_scale</span><span class="p">,</span>
+    <span class="n">bar_horizontal_alignment</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="n">rand_grid</span> <span class="o">=</span> <span class="n">DataGrid</span><span class="p">(</span><span class="n">rand_df</span><span class="p">,</span> <span class="n">default_renderer</span><span class="o">=</span><span class="n">bar_renderer</span><span class="p">,</span> <span class="n">base_column_size</span><span class="o">=</span><span class="mi">76</span><span class="p">)</span>
+<span class="n">rand_grid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bar_renderer</span><span class="o">.</span><span class="n">show_text</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">FloatSlider</span><span class="p">,</span> <span class="n">link</span>
+
+<span class="n">slider</span> <span class="o">=</span> <span class="n">FloatSlider</span><span class="p">(</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Scale: &quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">linear_scale</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span>
+<span class="p">)</span>
+<span class="n">link</span><span class="p">((</span><span class="n">color_scale</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">),</span> <span class="p">(</span><span class="n">slider</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">))</span>
+<span class="n">link</span><span class="p">((</span><span class="n">linear_scale</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">),</span> <span class="p">(</span><span class="n">slider</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">))</span>
+
+<span class="n">slider</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color_scale</span><span class="o">.</span><span class="n">min</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="integration-with-bqplot">
+<h3>Integration with <code class="docutils literal notranslate"><span class="pre">bqplot</span></code><a class="headerlink" href="#integration-with-bqplot" title="Link to this heading">#</a></h3>
+<p>We have a DataGrid with time series of 10 different stock prices. Each time we click on a stock price column, we want to plot the time series of that stock price in a line chart.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stock_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bqplot</span> <span class="kn">import</span> <span class="n">LinearScale</span><span class="p">,</span> <span class="n">Axis</span><span class="p">,</span> <span class="n">Figure</span><span class="p">,</span> <span class="n">Lines</span><span class="p">,</span> <span class="n">CATEGORY10</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">HBox</span><span class="p">,</span> <span class="n">Layout</span>
+    
+<span class="c1"># Setting up the data grid</span>
+<span class="n">stock_grid</span> <span class="o">=</span> <span class="n">DataGrid</span><span class="p">(</span><span class="n">stock_df</span><span class="p">,</span> <span class="n">selection_mode</span><span class="o">=</span><span class="s1">&#39;column&#39;</span><span class="p">)</span>
+
+<span class="c1"># Creating the bqplot chart objects</span>
+<span class="n">sc_x</span> <span class="o">=</span> <span class="n">LinearScale</span><span class="p">()</span>
+<span class="n">sc_y</span> <span class="o">=</span> <span class="n">LinearScale</span><span class="p">()</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">Lines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[],</span> <span class="n">y</span><span class="o">=</span><span class="p">[],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Fake stock price&#39;</span><span class="p">],</span> <span class="n">display_legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">scales</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">sc_x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">sc_y</span><span class="p">})</span>
+<span class="n">ax_x</span> <span class="o">=</span> <span class="n">Axis</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">sc_x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Index&#39;</span><span class="p">)</span>
+<span class="n">ax_y</span> <span class="o">=</span> <span class="n">Axis</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">sc_y</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;y-value&#39;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="n">marks</span><span class="o">=</span><span class="p">[</span><span class="n">line</span><span class="p">],</span> <span class="n">axes</span><span class="o">=</span><span class="p">[</span><span class="n">ax_x</span><span class="p">,</span> <span class="n">ax_y</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Line Chart&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">flex</span><span class="o">=</span><span class="s1">&#39;1 1 auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;100%&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_stock</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">stock_grid</span><span class="o">.</span><span class="n">selected_cell_values</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+    <span class="n">column_index</span> <span class="o">=</span> <span class="n">stock_grid</span><span class="o">.</span><span class="n">selections</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;c1&#39;</span><span class="p">]</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">stock_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">column_index</span><span class="p">]]</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">CATEGORY10</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">CATEGORY10</span><span class="p">))</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">CATEGORY10</span><span class="p">)]]</span>
+    
+<span class="c1"># Event listener for cell click</span>
+<span class="n">stock_grid</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">plot_stock</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;selections&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HBox</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">stock_grid</span><span class="p">,</span> <span class="n">fig</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "widgets-tutorial"
+        },
+        kernelOptions: {
+            name: "widgets-tutorial",
+            path: "./06.More_widget_libraries"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'widgets-tutorial'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="06.02-ipycytoscape.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ipycytoscape: Interactive graphs</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="06.04-ipygany.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ipygany: Interactive library for 3-D mesh analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#https-github-com-bloomberg-ipydatagrid">https://github.com/bloomberg/ipydatagrid</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-any-dataset">Use any dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-your-pandas-dataframe-to-a-datagrid-it-just-works">Convert your pandas DataFrame to a datagrid - it ‘just works’</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#style-your-data-grid-with-custom-renderers-based-on-vega-expressions">Style your data grid with custom renderers based on Vega expressions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-styling-to-column-and-row-headers">Apply styling to column and row headers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-sorting-and-filtering-functionality-which-you-can-trigger-from-both-python-and-directly-via-the-gui">Built-in sorting and filtering functionality which you can trigger from both Python and directly via the GUI.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-formatting-based-on-another-cell">Conditional formatting based on another cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-index-and-nested-columns-dataframes-are-also-supported">Multi-index and nested columns DataFrames are also supported</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-way-selections-model-at-your-disposal">Two-way selections model at your disposal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-way-cell-editing-is-possible">Two-way cell editing is possible</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#events-and-integration-with-ipywidgets">Events and integration with <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-with-the-barrenderer">An example with the BarRenderer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-bqplot">Integration with <code class="docutils literal notranslate"><span class="pre">bqplot</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By IroaseP(resigned)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

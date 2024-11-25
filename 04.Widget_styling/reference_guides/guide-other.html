@@ -1,0 +1,975 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Layout and Styling of Jupyter widgets &#8212; Book for Widgets</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '04.Widget_styling/reference_guides/guide-other';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Building complex widget libraries" href="../../05.Build-complex-libs/05.00-Build-complex-libraries.html" />
+    <link rel="prev" title="The Grid layout" href="guide-grid-box.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Book for Widgets - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Book for Widgets - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">01. Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../01.Introduction/01.00-introduction.html">Jupyter Widgets Tutorial Introduction</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../01.Introduction/01.01-overview.html">Overview</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02. Widget Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../02.Widget_overview/01.Interact/01.00-Using-Interact.html">Widgets without writing widgets: interact</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../02.Widget_overview/01.Interact/01.01-OPTIONAL-More-About-Interact.html">OPTIONAL - More about interact</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../02.Widget_overview/02.Basics/02.00-Widget_Basics.html">Simple Widget Introduction</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../02.Widget_overview/03.WidgetList/03.00-widget-list.html">2.3-1 Ipywidgets Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02.Widget_overview/03.WidgetList/03.01-more-on-output-widget.html">2.3-2 Output</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03. Widget Events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../03.Widget_events/03.00-Widget_Events.html">3.1 Widgets Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03.Widget_events/03.01-OPTIONAL-Widget_Events_2.html"><em>OPTIONAL</em> Three approaches to events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03.Widget_events/03.02-OPTIONAL-Widget_Events_2_--_bad_password_generator%2C_version_1.html"><em>OPTIONAL</em> Password generator: <code class="docutils literal notranslate"><span class="pre">observe</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03.Widget_events/03.03-OPTIONAL-Widget_Events_2_--_Separating_Concerns.html"><em>OPTIONAL</em> Separating the logic from the widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03.Widget_events/03.04-OPTIONAL-Widget_Events_2--Separating_concerns%2C_object_oriented.html"><em>OPTIONAL</em> Separating the logic using classes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04. Widget Styling</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../04.00-Layout-and-Styling-Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.01-widget-layout-and-styling.html">4.1 Layout and Styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.03-more-flexbox-layout.html">4.2 Flexbox Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.04-OPTIONAL-widget-label-styling.html">OPTIONAL - Widget label styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.05-OPTIONAL-widget-specific-styling.html">OPTIONAL Predefined widget styles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.06-OPTIONAL-container-exercises.html"><em>OPTIONAL</em> widget layout exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Table_of_widget_keys_and_style_keys.html">Scroll down to get to the interesting tables…</a></li>
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">05. Build Complex Libraries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../05.Build-complex-libs/05.00-Build-complex-libraries.html">5.1 Building Complex Widgets Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05.Build-complex-libs/05.01-Refactoring.html">5.2 Refactoring The Class-based Implementation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">06. More Widget Libraries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../06.More_widget_libraries/06.00-More_widget_libraries.html">PREVIEW More Widget Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06.More_widget_libraries/06.01-ipycanvas.html">6.1 ipycanvas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06.More_widget_libraries/06.02-ipycytoscape.html">ipycytoscape: Interactive graphs</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../06.More_widget_libraries/06.03-ipydatagrid.html">6.3 ipydatagrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06.More_widget_libraries/06.04-ipygany.html">6.4 ipygany</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06.More_widget_libraries/06.05-other-widget-libraries.html">Other widget libraries</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../06.More_widget_libraries/extras/bqplot.html">bqplot: complex interactive visualizations</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../06.More_widget_libraries/extras/ipyleaflet.html">ipyleaflet: Interactive maps</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../06.More_widget_libraries/extras/ipympl.html">EXTRAS ipympl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06.More_widget_libraries/extras/ipytree.html">EXTRAS ipytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06.More_widget_libraries/extras/ipyvolume.html">ipyvolume: 3D plotting in the notebook</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../06.More_widget_libraries/extras/ipyvuetify.html">Ipyvuetify</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../06.More_widget_libraries/extras/ipywebrtc.html">EXTRAS ipywebrtc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../06.More_widget_libraries/extras/pythreejs.html">pythreejs: 3D rendering in the browser</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../06.More_widget_libraries/extras/PyWWT.html">PyWWT - widget interface to the World Wide Telescope</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">07. Widgets Outside Notebook Context</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../07.Widgets_outside_notebook_context/07.00-voila.html"><em>PREVIEW</em> Dashboarding with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07.Widgets_outside_notebook_context/07.01-voila-basics.html">7.1 Voila Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07.Widgets_outside_notebook_context/07.02-voila-vuetify.html">Deploying voilà</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../07.Widgets_outside_notebook_context/07.03-jupyterlite.html">Lightweight Jupyter Frontend running in the browser</a></li>
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">08. Ipywidgets 8</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../08.Ipywidgets_8/08.00-ipywidgets_8.html">ipywidgets 8</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F04.Widget_styling/reference_guides/guide-other.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/04.Widget_styling/reference_guides/guide-other.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Layout and Styling of Jupyter widgets</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-layout-attribute">The <code class="docutils literal notranslate"><span class="pre">layout</span></code> attribute.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exposed-css-properties">Exposed CSS properties</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sizes">Sizes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#display">Display</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#box-model">Box model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#positioning">Positioning</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#flexbox">Flexbox</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-layout">Grid layout</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shorthand-css-properties">Shorthand CSS properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-examples">Simple examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-sizes-and-arrangements-using-hbox-and-vbox">Natural sizes, and arrangements using HBox and VBox</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latex">LaTeX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#number-formatting">Number formatting</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibility-note"><em>Compatibility note</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-widget-for-exploring-layout-options">A widget for exploring layout options</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="layout-and-styling-of-jupyter-widgets">
+<h1>Layout and Styling of Jupyter widgets<a class="headerlink" href="#layout-and-styling-of-jupyter-widgets" title="Link to this heading">#</a></h1>
+<p>This notebook presents how to layout and style Jupyter interactive widgets to build rich and <em>reactive</em> widget-based applications.</p>
+<section id="the-layout-attribute">
+<h2>The <code class="docutils literal notranslate"><span class="pre">layout</span></code> attribute.<a class="headerlink" href="#the-layout-attribute" title="Link to this heading">#</a></h2>
+<p>Jupyter interactive widgets have a <code class="docutils literal notranslate"><span class="pre">layout</span></code> attribute exposing a number of CSS properties that impact how widgets are laid out.</p>
+<section id="exposed-css-properties">
+<h3>Exposed CSS properties<a class="headerlink" href="#exposed-css-properties" title="Link to this heading">#</a></h3>
+<div class="alert alert-info" style="margin: 20px">
+The following properties map to the values of the CSS properties of the same name (underscores being replaced with dashes), applied to the top DOM elements of the corresponding widget.
+</div>
+<section id="sizes">
+<h4>Sizes<a class="headerlink" href="#sizes" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_height</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_width</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_height</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_width</span></code></p></li>
+</ul>
+</section>
+<section id="display">
+<h4>Display<a class="headerlink" href="#display" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">visibility</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">display</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">overflow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">overflow_x</span></code> (deprecated in <code class="docutils literal notranslate"><span class="pre">7.5</span></code>, use <code class="docutils literal notranslate"><span class="pre">overflow</span></code> instead)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">overflow_y</span></code> (deprecated in <code class="docutils literal notranslate"><span class="pre">7.5</span></code>, use <code class="docutils literal notranslate"><span class="pre">overflow</span></code> instead)</p></li>
+</ul>
+</section>
+<section id="box-model">
+<h4>Box model<a class="headerlink" href="#box-model" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">border</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding</span></code></p></li>
+</ul>
+</section>
+<section id="positioning">
+<h4>Positioning<a class="headerlink" href="#positioning" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">top</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bottom</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span></code></p></li>
+</ul>
+</section>
+<section id="flexbox">
+<h4>Flexbox<a class="headerlink" href="#flexbox" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">order</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flex_flow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">align_items</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flex</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">align_self</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">align_content</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">justify_content</span></code></p></li>
+</ul>
+</section>
+<section id="grid-layout">
+<h4>Grid layout<a class="headerlink" href="#grid-layout" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_auto_columns</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_auto_flow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_auto_rows</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_gap</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_template</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_row</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_column</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="shorthand-css-properties">
+<h3>Shorthand CSS properties<a class="headerlink" href="#shorthand-css-properties" title="Link to this heading">#</a></h3>
+<p>You may have noticed that certain CSS properties such as <code class="docutils literal notranslate"><span class="pre">margin-[top/right/bottom/left]</span></code> seem to be missing. The same holds for <code class="docutils literal notranslate"><span class="pre">padding-[top/right/bottom/left]</span></code> etc.</p>
+<p>In fact, you can atomically specify <code class="docutils literal notranslate"><span class="pre">[top/right/bottom/left]</span></code> margins via the <code class="docutils literal notranslate"><span class="pre">margin</span></code> attribute alone by passing the string <code class="docutils literal notranslate"><span class="pre">'100px</span> <span class="pre">150px</span> <span class="pre">100px</span> <span class="pre">80px'</span></code> for a respectively <code class="docutils literal notranslate"><span class="pre">top</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">bottom</span></code> and <code class="docutils literal notranslate"><span class="pre">left</span></code> margins of  <code class="docutils literal notranslate"><span class="pre">100</span></code>, <code class="docutils literal notranslate"><span class="pre">150</span></code>, <code class="docutils literal notranslate"><span class="pre">100</span></code> and <code class="docutils literal notranslate"><span class="pre">80</span></code> pixels.</p>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">flex</span></code> attribute can hold values for <code class="docutils literal notranslate"><span class="pre">flex-grow</span></code>, <code class="docutils literal notranslate"><span class="pre">flex-shrink</span></code> and <code class="docutils literal notranslate"><span class="pre">flex-basis</span></code>. The <code class="docutils literal notranslate"><span class="pre">border</span></code> attribute is a shorthand property for <code class="docutils literal notranslate"><span class="pre">border-width</span></code>, <code class="docutils literal notranslate"><span class="pre">border-style</span> <span class="pre">(required)</span></code>, and <code class="docutils literal notranslate"><span class="pre">border-color</span></code>.</p>
+</section>
+<section id="simple-examples">
+<h3>Simple examples<a class="headerlink" href="#simple-examples" title="Link to this heading">#</a></h3>
+<p>The following example shows how to resize a <code class="docutils literal notranslate"><span class="pre">Button</span></code> so that its views have a height of <code class="docutils literal notranslate"><span class="pre">80px</span></code> and a width of <code class="docutils literal notranslate"><span class="pre">50%</span></code> of the available space. It also includes an example of setting a CSS property that requires multiple values (a border, in thise case):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Layout</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;(50% width, 80px height) button&#39;</span><span class="p">,</span>
+           <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;50%&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;80px&#39;</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="s1">&#39;2px dotted blue&#39;</span><span class="p">))</span>
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "a4aee9005c8b4a59a93c8b24274d13a1"}</script></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">layout</span></code> property can be shared between multiple widgets and assigned directly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Another button with the same layout&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">b</span><span class="o">.</span><span class="n">layout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "e16808bc1e384396a095ace4b6f27d61"}</script></div>
+</div>
+</section>
+<section id="description">
+<h3>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h3>
+<p>You may have noticed that long descriptions are truncated. This is because the description length is, by default, fixed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">IntSlider</span>
+
+<span class="n">IntSlider</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;A too long description&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "a04a08d85c28412982cecd126ffdfbbd"}</script></div>
+</div>
+<p>If you need more flexibility to lay out widgets and descriptions, you can use Label widgets directly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">HBox</span><span class="p">,</span> <span class="n">Label</span>
+
+<span class="n">HBox</span><span class="p">([</span><span class="n">Label</span><span class="p">(</span><span class="s1">&#39;A too long description&#39;</span><span class="p">),</span> <span class="n">IntSlider</span><span class="p">()])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "1d5130d9df9c48559aa9bda2409a1b82"}</script></div>
+</div>
+<p>You can change the length of the description to fit the description text. However, this will make the widget itself shorter. You can change both by adjusting the description width and the widget width using the widget’s style.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s1">&#39;initial&#39;</span><span class="p">}</span>
+<span class="n">IntSlider</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;A too long description&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "fd2edbc77c594519b77c6ec455060361"}</script></div>
+</div>
+</section>
+<section id="natural-sizes-and-arrangements-using-hbox-and-vbox">
+<h3>Natural sizes, and arrangements using HBox and VBox<a class="headerlink" href="#natural-sizes-and-arrangements-using-hbox-and-vbox" title="Link to this heading">#</a></h3>
+<p>Most of the core-widgets have default heights and widths that tile well together. This allows simple layouts based on the <code class="docutils literal notranslate"><span class="pre">HBox</span></code> and <code class="docutils literal notranslate"><span class="pre">VBox</span></code> helper functions to align naturally:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">HBox</span><span class="p">,</span> <span class="n">VBox</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;correct&#39;</span><span class="p">,</span> <span class="s1">&#39;horse&#39;</span><span class="p">,</span> <span class="s1">&#39;battery&#39;</span><span class="p">,</span> <span class="s1">&#39;staple&#39;</span><span class="p">]</span>
+<span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+<span class="n">left_box</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">([</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">right_box</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">([</span><span class="n">items</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">HBox</span><span class="p">([</span><span class="n">left_box</span><span class="p">,</span> <span class="n">right_box</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "feaa1b05718c4f4b9351c99b00a78431"}</script></div>
+</div>
+</section>
+<section id="latex">
+<h3>LaTeX<a class="headerlink" href="#latex" title="Link to this heading">#</a></h3>
+<p>Widgets such as sliders and text inputs have a description attribute that can render Latex Equations. The <code class="docutils literal notranslate"><span class="pre">Label</span></code> widget also renders Latex equations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">IntSlider</span><span class="p">,</span> <span class="n">Label</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IntSlider</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;\(\int_0^t f\)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "5a11941217fc4696b3828ea0a0aa078b"}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;\(e=mc^2\)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "44f10277cb9245a091a99b1d9410db2a"}</script></div>
+</div>
+</section>
+<section id="number-formatting">
+<h3>Number formatting<a class="headerlink" href="#number-formatting" title="Link to this heading">#</a></h3>
+<p>Sliders have a readout field which can be formatted using Python’s <a class="reference external" href="https://docs.python.org/3/library/string.html#format-specification-mini-language">Format Specification Mini-Language</a>. If the space available for the readout is too narrow for the string representation of the slider value, a different styling is applied to show that not all digits are visible.</p>
+<p><strong>Four buttons in a VBox. Items stretch to the maximum width, in a vertical box taking <code class="docutils literal notranslate"><span class="pre">50%</span></code> of the available space.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Box</span>
+
+<span class="n">items_layout</span> <span class="o">=</span> <span class="n">Layout</span><span class="p">(</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>     <span class="c1"># override the default width of the button to &#39;auto&#39; to let the button grow</span>
+
+<span class="n">box_layout</span> <span class="o">=</span> <span class="n">Layout</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s1">&#39;flex&#39;</span><span class="p">,</span>
+                    <span class="n">flex_flow</span><span class="o">=</span><span class="s1">&#39;column&#39;</span><span class="p">,</span> 
+                    <span class="n">align_items</span><span class="o">=</span><span class="s1">&#39;stretch&#39;</span><span class="p">,</span> 
+                    <span class="n">border</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span>
+                    <span class="n">width</span><span class="o">=</span><span class="s1">&#39;50%&#39;</span><span class="p">)</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;correct&#39;</span><span class="p">,</span> <span class="s1">&#39;horse&#39;</span><span class="p">,</span> <span class="s1">&#39;battery&#39;</span><span class="p">,</span> <span class="s1">&#39;staple&#39;</span><span class="p">]</span>
+<span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">word</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">items_layout</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;danger&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+<span class="n">box</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="n">items</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">box_layout</span><span class="p">)</span>
+<span class="n">box</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "56678e391b164cde92b1f1c6fc7bce73"}</script></div>
+</div>
+<p><strong>Three buttons in an HBox. Items flex proportionally to their weight.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">VBox</span>
+
+<span class="c1"># Items flex proportionally to the weight and the left over space around the text </span>
+<span class="n">items_auto</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;weight=1; auto&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">flex</span><span class="o">=</span><span class="s1">&#39;1 1 auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">),</span> <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;danger&#39;</span><span class="p">),</span>
+    <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;weight=3; auto&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">flex</span><span class="o">=</span><span class="s1">&#39;3 1 auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">),</span> <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;danger&#39;</span><span class="p">),</span>
+    <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;weight=1; auto&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">flex</span><span class="o">=</span><span class="s1">&#39;1 1 auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">),</span> <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;danger&#39;</span><span class="p">),</span>
+ <span class="p">]</span>
+
+<span class="c1"># Items flex proportionally to the weight </span>
+<span class="n">items_0</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;weight=1; 0%&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">flex</span><span class="o">=</span><span class="s1">&#39;1 1 0%&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">),</span> <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;danger&#39;</span><span class="p">),</span>
+    <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;weight=3; 0%&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">flex</span><span class="o">=</span><span class="s1">&#39;3 1 0%&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">),</span> <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;danger&#39;</span><span class="p">),</span>
+    <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;weight=1; 0%&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">flex</span><span class="o">=</span><span class="s1">&#39;1 1 0%&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">),</span> <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;danger&#39;</span><span class="p">),</span>
+ <span class="p">]</span>
+<span class="n">box_layout</span> <span class="o">=</span> <span class="n">Layout</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s1">&#39;flex&#39;</span><span class="p">,</span>
+                    <span class="n">flex_flow</span><span class="o">=</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> 
+                    <span class="n">align_items</span><span class="o">=</span><span class="s1">&#39;stretch&#39;</span><span class="p">,</span> 
+                    <span class="n">width</span><span class="o">=</span><span class="s1">&#39;70%&#39;</span><span class="p">)</span>
+<span class="n">box_auto</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="n">items_auto</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">box_layout</span><span class="p">)</span>
+<span class="n">box_0</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="n">items_0</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">box_layout</span><span class="p">)</span>
+<span class="n">VBox</span><span class="p">([</span><span class="n">box_auto</span><span class="p">,</span> <span class="n">box_0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "498428f72d5e4bba98dd88fedb4999aa"}</script></div>
+</div>
+<p><strong>A more advanced example: a reactive form.</strong></p>
+<p>The form is a <code class="docutils literal notranslate"><span class="pre">VBox</span></code> of width ‘50%’. Each row in the VBox is an HBox, that justifies the content with space between..</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">FloatText</span><span class="p">,</span> <span class="n">Textarea</span><span class="p">,</span> <span class="n">Dropdown</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">IntSlider</span>
+
+<span class="n">form_item_layout</span> <span class="o">=</span> <span class="n">Layout</span><span class="p">(</span>
+    <span class="n">display</span><span class="o">=</span><span class="s1">&#39;flex&#39;</span><span class="p">,</span>
+    <span class="n">flex_flow</span><span class="o">=</span><span class="s1">&#39;row&#39;</span><span class="p">,</span>
+    <span class="n">justify_content</span><span class="o">=</span><span class="s1">&#39;space-between&#39;</span>
+<span class="p">)</span>
+
+<span class="n">form_items</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Box</span><span class="p">([</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Age of the captain&#39;</span><span class="p">),</span> <span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">60</span><span class="p">)],</span> <span class="n">layout</span><span class="o">=</span><span class="n">form_item_layout</span><span class="p">),</span>
+    <span class="n">Box</span><span class="p">([</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Egg style&#39;</span><span class="p">),</span> 
+         <span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Scrambled&#39;</span><span class="p">,</span> <span class="s1">&#39;Sunny side up&#39;</span><span class="p">,</span> <span class="s1">&#39;Over easy&#39;</span><span class="p">])],</span> <span class="n">layout</span><span class="o">=</span><span class="n">form_item_layout</span><span class="p">),</span>
+    <span class="n">Box</span><span class="p">([</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Ship size&#39;</span><span class="p">),</span> 
+         <span class="n">FloatText</span><span class="p">()],</span> <span class="n">layout</span><span class="o">=</span><span class="n">form_item_layout</span><span class="p">),</span>
+    <span class="n">Box</span><span class="p">([</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Information&#39;</span><span class="p">),</span> 
+         <span class="n">Textarea</span><span class="p">()],</span> <span class="n">layout</span><span class="o">=</span><span class="n">form_item_layout</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">form</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">form_items</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span>
+    <span class="n">display</span><span class="o">=</span><span class="s1">&#39;flex&#39;</span><span class="p">,</span>
+    <span class="n">flex_flow</span><span class="o">=</span><span class="s1">&#39;column&#39;</span><span class="p">,</span>
+    <span class="n">border</span><span class="o">=</span><span class="s1">&#39;solid 2px&#39;</span><span class="p">,</span>
+    <span class="n">align_items</span><span class="o">=</span><span class="s1">&#39;stretch&#39;</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="s1">&#39;50%&#39;</span>
+<span class="p">))</span>
+<span class="n">form</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "c5918360e23745fca73d48cf7e8cbfc4"}</script></div>
+</div>
+<p><strong>A more advanced example: a carousel.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">Label</span>
+
+<span class="n">item_layout</span> <span class="o">=</span> <span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s1">&#39;100px&#39;</span><span class="p">,</span> <span class="n">min_width</span><span class="o">=</span><span class="s1">&#39;40px&#39;</span><span class="p">)</span>
+<span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">Button</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">item_layout</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;warning&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">)]</span>
+<span class="n">box_layout</span> <span class="o">=</span> <span class="n">Layout</span><span class="p">(</span><span class="n">overflow_x</span><span class="o">=</span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span>
+                    <span class="n">border</span><span class="o">=</span><span class="s1">&#39;3px solid black&#39;</span><span class="p">,</span>
+                    <span class="n">width</span><span class="o">=</span><span class="s1">&#39;500px&#39;</span><span class="p">,</span>
+                    <span class="n">height</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                    <span class="n">flex_flow</span><span class="o">=</span><span class="s1">&#39;row&#39;</span><span class="p">,</span>
+                    <span class="n">display</span><span class="o">=</span><span class="s1">&#39;flex&#39;</span><span class="p">)</span>
+<span class="n">carousel</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="n">items</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">box_layout</span><span class="p">)</span>
+<span class="n">VBox</span><span class="p">([</span><span class="n">Label</span><span class="p">(</span><span class="s1">&#39;Scroll horizontally:&#39;</span><span class="p">),</span> <span class="n">carousel</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "561f6310ce824f7e805ab83164053320"}</script></div>
+</div>
+<section id="compatibility-note">
+<h4><em>Compatibility note</em><a class="headerlink" href="#compatibility-note" title="Link to this heading">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">overflow_x</span></code> and <code class="docutils literal notranslate"><span class="pre">overflow_y</span></code> options are deprecated in ipywidgets <code class="docutils literal notranslate"><span class="pre">7.5</span></code>. Instead, use the shorthand property <code class="docutils literal notranslate"><span class="pre">overflow='scroll</span> <span class="pre">hidden'</span></code>. The first part specificies overflow in <code class="docutils literal notranslate"><span class="pre">x</span></code>, the second the overflow in <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</section>
+</section>
+</section>
+<section id="a-widget-for-exploring-layout-options">
+<h2>A widget for exploring layout options<a class="headerlink" href="#a-widget-for-exploring-layout-options" title="Link to this heading">#</a></h2>
+<p>The widgets below was written by ipywidgets user <a class="reference external" href="https://github.com/DougRzz">Doug Redden (&#64;DougRzz)</a>. If you want to look through the source code to see how it works, take a look at this <a class="reference internal" href="#cssJupyterWidgetStyling-UI.ipynb"><span class="xref myst">notebook he contributed</span></a>.</p>
+<p>Use the dropdowns and sliders in the widget to change the layout of the box containing the five colored buttons. Many of the CSS layout optoins described above are available, and the Python code to generate a <code class="docutils literal notranslate"><span class="pre">Layout</span></code> object reflecting the settings is in a <code class="docutils literal notranslate"><span class="pre">TextArea</span></code> in the widget.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">layout_preview</span> <span class="kn">import</span> <span class="n">layout</span>
+<span class="n">layout</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">layout_preview</span> <span class="kn">import</span> <span class="n">layout</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">layout</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;layout_preview&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "widgets-tutorial"
+        },
+        kernelOptions: {
+            name: "widgets-tutorial",
+            path: "./04.Widget_styling\reference_guides"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'widgets-tutorial'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="guide-grid-box.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The Grid layout</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../05.Build-complex-libs/05.00-Build-complex-libraries.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Building complex widget libraries</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-layout-attribute">The <code class="docutils literal notranslate"><span class="pre">layout</span></code> attribute.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exposed-css-properties">Exposed CSS properties</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sizes">Sizes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#display">Display</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#box-model">Box model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#positioning">Positioning</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#flexbox">Flexbox</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-layout">Grid layout</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shorthand-css-properties">Shorthand CSS properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-examples">Simple examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-sizes-and-arrangements-using-hbox-and-vbox">Natural sizes, and arrangements using HBox and VBox</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latex">LaTeX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#number-formatting">Number formatting</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibility-note"><em>Compatibility note</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-widget-for-exploring-layout-options">A widget for exploring layout options</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By IroaseP(resigned)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

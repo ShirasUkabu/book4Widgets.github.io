@@ -1,0 +1,1570 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Layout and Styling of Jupyter widgets &#8212; Book for Widgets</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '04.Widget_styling/04.01-widget-layout-and-styling';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="More about the flexbox layout" href="04.03-more-flexbox-layout.html" />
+    <link rel="prev" title="Layout and Styling of Jupyter widgets" href="04.00-Layout-and-Styling-Overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Book for Widgets - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Book for Widgets - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">01. Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01.Introduction/01.00-introduction.html">Jupyter Widgets Tutorial Introduction</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../01.Introduction/01.01-overview.html">Overview</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02. Widget Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/01.Interact/01.00-Using-Interact.html">Widgets without writing widgets: interact</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/01.Interact/01.01-OPTIONAL-More-About-Interact.html">OPTIONAL - More about interact</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/02.Basics/02.00-Widget_Basics.html">Simple Widget Introduction</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/03.WidgetList/03.00-widget-list.html">2.3-1 Ipywidgets Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/03.WidgetList/03.01-more-on-output-widget.html">2.3-2 Output</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03. Widget Events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.00-Widget_Events.html">3.1 Widgets Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.01-OPTIONAL-Widget_Events_2.html"><em>OPTIONAL</em> Three approaches to events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.02-OPTIONAL-Widget_Events_2_--_bad_password_generator%2C_version_1.html"><em>OPTIONAL</em> Password generator: <code class="docutils literal notranslate"><span class="pre">observe</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.03-OPTIONAL-Widget_Events_2_--_Separating_Concerns.html"><em>OPTIONAL</em> Separating the logic from the widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.04-OPTIONAL-Widget_Events_2--Separating_concerns%2C_object_oriented.html"><em>OPTIONAL</em> Separating the logic using classes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04. Widget Styling</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04.00-Layout-and-Styling-Overview.html">Overview</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4.1 Layout and Styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.03-more-flexbox-layout.html">4.2 Flexbox Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.04-OPTIONAL-widget-label-styling.html">OPTIONAL - Widget label styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.05-OPTIONAL-widget-specific-styling.html">OPTIONAL Predefined widget styles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04.06-OPTIONAL-container-exercises.html"><em>OPTIONAL</em> widget layout exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Table_of_widget_keys_and_style_keys.html">Scroll down to get to the interesting tables…</a></li>
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">05. Build Complex Libraries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../05.Build-complex-libs/05.00-Build-complex-libraries.html">5.1 Building Complex Widgets Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05.Build-complex-libs/05.01-Refactoring.html">5.2 Refactoring The Class-based Implementation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">06. More Widget Libraries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/06.00-More_widget_libraries.html">PREVIEW More Widget Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/06.01-ipycanvas.html">6.1 ipycanvas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/06.02-ipycytoscape.html">ipycytoscape: Interactive graphs</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/06.03-ipydatagrid.html">6.3 ipydatagrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/06.04-ipygany.html">6.4 ipygany</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/06.05-other-widget-libraries.html">Other widget libraries</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/bqplot.html">bqplot: complex interactive visualizations</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/ipyleaflet.html">ipyleaflet: Interactive maps</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/ipympl.html">EXTRAS ipympl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/ipytree.html">EXTRAS ipytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/ipyvolume.html">ipyvolume: 3D plotting in the notebook</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/ipyvuetify.html">Ipyvuetify</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/ipywebrtc.html">EXTRAS ipywebrtc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/pythreejs.html">pythreejs: 3D rendering in the browser</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../06.More_widget_libraries/extras/PyWWT.html">PyWWT - widget interface to the World Wide Telescope</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">07. Widgets Outside Notebook Context</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../07.Widgets_outside_notebook_context/07.00-voila.html"><em>PREVIEW</em> Dashboarding with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.Widgets_outside_notebook_context/07.01-voila-basics.html">7.1 Voila Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.Widgets_outside_notebook_context/07.02-voila-vuetify.html">Deploying voilà</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07.Widgets_outside_notebook_context/07.03-jupyterlite.html">Lightweight Jupyter Frontend running in the browser</a></li>
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">08. Ipywidgets 8</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../08.Ipywidgets_8/08.00-ipywidgets_8.html">ipywidgets 8</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F04.Widget_styling/04.01-widget-layout-and-styling.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/04.Widget_styling/04.01-widget-layout-and-styling.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Layout and Styling of Jupyter widgets</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-style-attribute">The <code class="docutils literal notranslate"><span class="pre">style</span></code> attribute</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#style-example">Style Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#button-style-and-bar-style-attributes"><code class="docutils literal notranslate"><span class="pre">button_style</span></code> and <code class="docutils literal notranslate"><span class="pre">bar_style</span></code> attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-attribute-the-foundation-of-widget-layout"><code class="docutils literal notranslate"><span class="pre">layout</span></code> attribute: the foundation of widget layout</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exposed-css-properties">Exposed CSS properties</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shorthand-css-properties">Shorthand CSS properties</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-example"><code class="docutils literal notranslate"><span class="pre">Layout</span></code> example</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#container-layout-widgets">Container Layout Widgets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-more-information-about-flexbox-and-grid">For more information about Flexbox and Grid</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-flexbox-layout">The Flexbox Layout</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-vbox-and-hbox-helpers">The VBox and HBox helpers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hbox-and-vbox-examples">HBox and VBox Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#four-buttons-in-a-vbox-items-stretch-to-the-maximum-width-in-a-vertical-box-taking-50-of-the-available-space">Four buttons in a VBox. Items stretch to the maximum width, in a vertical box taking <code class="docutils literal notranslate"><span class="pre">50%</span></code> of the available space.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-reactive-form">A reactive form</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-grid-layout">The Grid Layout</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-layout-template-examples">Grid Layout Template Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-setup">Some setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#twobytwolayout">TwoByTwoLayout</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bqplot-figure-with-linked-sliders">bqplot Figure with linked sliders</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applayout">AppLayout</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gridspeclayout">GridspecLayout</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chart-grid-with-scatter-plots-and-histograms">Chart grid with scatter plots and histograms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gridbox-examples">GridBox Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#x3-grid-with-custom-row-column-sizes">3x3 grid with custom row &amp; column sizes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-alternate-way-of-defining-the-grid-using-grid-areas">An alternate way of defining the grid, using grid areas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-main-area-larger">Make the main area larger</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="layout-and-styling-of-jupyter-widgets">
+<h1>Layout and Styling of Jupyter widgets<a class="headerlink" href="#layout-and-styling-of-jupyter-widgets" title="Link to this heading">#</a></h1>
+<p>This section presents how to layout and style Jupyter interactive widgets to build rich and <em>reactive</em> widget-based applications.</p>
+<p>Every Jupyter widget has two attributes to customize layout and styling of the widget. They are <code class="docutils literal notranslate"><span class="pre">layout</span></code> and <code class="docutils literal notranslate"><span class="pre">style</span></code> attributes.</p>
+<section id="the-style-attribute">
+<h2>The <code class="docutils literal notranslate"><span class="pre">style</span></code> attribute<a class="headerlink" href="#the-style-attribute" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">style</span></code> attribute is used to expose non-layout related styling attributes of widgets. For most widgets, the only style that can be modified is <code class="docutils literal notranslate"><span class="pre">description_width</span></code>, which is the width of the description label for the widget.</p>
+<p>However, a few widgets have additional style settings, as described below.</p>
+<section id="style-example">
+<h3>Style Example<a class="headerlink" href="#style-example" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">ButtonStyle</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Custom color&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">button_color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">))</span>
+<span class="n">b2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "cccac2032ade4b3190f47158c920c861"}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b2</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">button_color</span> <span class="o">=</span> <span class="s1">&#39;yellow&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can get a list of the style attributes for a widget with the <code class="docutils literal notranslate"><span class="pre">keys</span></code> property.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b2</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">keys</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;_model_module&#39;,
+ &#39;_model_module_version&#39;,
+ &#39;_model_name&#39;,
+ &#39;_view_count&#39;,
+ &#39;_view_module&#39;,
+ &#39;_view_module_version&#39;,
+ &#39;_view_name&#39;,
+ &#39;button_color&#39;,
+ &#39;font_weight&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Like the <code class="docutils literal notranslate"><span class="pre">layout</span></code> attribute, widget styles can be assigned to other widgets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b3</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Another button&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">b2</span><span class="o">.</span><span class="n">style</span><span class="p">)</span>
+<span class="n">b3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "57d40e827ac244798bf0c631a8af3f93"}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b2</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">button_color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Widget styling attributes are specific to each widget type.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">IntSlider</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Blue handle&#39;</span><span class="p">)</span>
+<span class="n">s1</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">handle_color</span> <span class="o">=</span> <span class="s1">&#39;lightblue&#39;</span>
+<span class="n">s1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "162ae3fd5ddb49f8bc864f0281e1c7f9"}</script></div>
+</div>
+<p>There is a <a class="reference internal" href="Table_of_widget_keys_and_style_keys.html#Style-keys"><span class="std std-ref">list of all style keys</span></a>.</p>
+<section id="button-style-and-bar-style-attributes">
+<h4><code class="docutils literal notranslate"><span class="pre">button_style</span></code> and <code class="docutils literal notranslate"><span class="pre">bar_style</span></code> attributes<a class="headerlink" href="#button-style-and-bar-style-attributes" title="Link to this heading">#</a></h4>
+<p>These attributes let you style some widgets with pre-defined settings that are <code class="docutils literal notranslate"><span class="pre">theme</span> <span class="pre">aware</span></code>. These properties affect both background color and text color of widgets. These attributes are available for the widgets listed below. Available options for these styles are <code class="docutils literal notranslate"><span class="pre">success</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">warning</span></code>, <code class="docutils literal notranslate"><span class="pre">danger</span></code>. Buttons also have option <code class="docutils literal notranslate"><span class="pre">primary</span></code></p>
+<ul class="simple">
+<li><p><strong>button_style</strong> is available for: Button, ToggleButton, ToggleButtons, FileUpload</p></li>
+<li><p><strong>bar_style</strong> is available for: FloatProgress, IntProgress</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b4</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Yet another button&#39;</span><span class="p">)</span>
+<span class="n">b4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "82d2bc30cdf54076917a27500f47fd54"}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b4</span><span class="o">.</span><span class="n">button_style</span> <span class="o">=</span> <span class="s1">&#39;warning&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that setting the <code class="docutils literal notranslate"><span class="pre">style</span></code> of a button overrides the <code class="docutils literal notranslate"><span class="pre">button_style</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b4</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">button_color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>  <span class="c1"># Makes the color red</span>
+<span class="n">b4</span><span class="o">.</span><span class="n">button_style</span> <span class="o">=</span> <span class="s1">&#39;success&#39;</span>  <span class="c1"># Does not turn the color green because the color has been explicitly set in the style</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="layout-attribute-the-foundation-of-widget-layout">
+<h2><code class="docutils literal notranslate"><span class="pre">layout</span></code> attribute: the foundation of widget layout<a class="headerlink" href="#layout-attribute-the-foundation-of-widget-layout" title="Link to this heading">#</a></h2>
+<p>Jupyter interactive widgets have a <code class="docutils literal notranslate"><span class="pre">layout</span></code> attribute exposing a number of CSS properties that impact how widgets are laid out.</p>
+<section id="exposed-css-properties">
+<h3>Exposed CSS properties<a class="headerlink" href="#exposed-css-properties" title="Link to this heading">#</a></h3>
+<div class="alert alert-info" style="margin: 20px">
+The following properties map to the values of the CSS properties of the same name (underscores being replaced with dashes), applied to the top DOM elements of the corresponding widget.
+</div>
+<details>
+<summary><strong>Sizes</strong></summary>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_height</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_width</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_height</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_width</span></code></p></li>
+</ul>
+</details>
+<details>
+<summary><strong>Display</strong></summary>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">visibility</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">display</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">overflow</span></code></p></li>
+</ul>
+</details>
+<details>
+<summary><strong>Box model</strong></summary>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">border</span></code> – changing in <code class="docutils literal notranslate"><span class="pre">ipywidgets</span> <span class="pre">8</span></code>; will have four new properties <code class="docutils literal notranslate"><span class="pre">border_left</span></code>, <code class="docutils literal notranslate"><span class="pre">border_right</span></code>, <code class="docutils literal notranslate"><span class="pre">border_top</span></code> and <code class="docutils literal notranslate"><span class="pre">border_bottom</span></code>, to better match what CSS provides. <code class="docutils literal notranslate"><span class="pre">border</span></code> will still be available as a shortcut, but will not set a <code class="docutils literal notranslate"><span class="pre">border</span></code> CSS property.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding</span></code></p></li>
+</ul>
+</details>
+<details>
+<summary><strong>Positioning</strong></summary>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">top</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bottom</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span></code></p></li>
+</ul>
+</details>
+<details>
+<summary><strong>Image/media</strong></summary>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">object_fit</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">object_position</span></code></p></li>
+</ul>
+</details>
+<details>
+<summary><strong>Flexbox</strong></summary>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">order</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flex_flow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">align_items</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flex</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">align_self</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">align_content</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">justify_content</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">justify_items</span></code></p></li>
+</ul>
+</details>
+<details>
+<summary><strong>Grid layout</strong></summary>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_auto_columns</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_auto_flow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_auto_rows</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_gap</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_template_rows</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_template_columns</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_template_areas</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_row</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_column</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_area</span></code></p></li>
+</ul>
+</details><section id="shorthand-css-properties">
+<h4>Shorthand CSS properties<a class="headerlink" href="#shorthand-css-properties" title="Link to this heading">#</a></h4>
+<p>You may have noticed that certain CSS properties such as <code class="docutils literal notranslate"><span class="pre">margin-[top/right/bottom/left]</span></code> seem to be missing. The same holds for <code class="docutils literal notranslate"><span class="pre">padding-[top/right/bottom/left]</span></code> etc.</p>
+<p>In fact, you can atomically specify <code class="docutils literal notranslate"><span class="pre">[top/right/bottom/left]</span></code> margins via the <code class="docutils literal notranslate"><span class="pre">margin</span></code> attribute alone by passing the string <code class="docutils literal notranslate"><span class="pre">'100px</span> <span class="pre">150px</span> <span class="pre">100px</span> <span class="pre">80px'</span></code> for a respectively <code class="docutils literal notranslate"><span class="pre">top</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">bottom</span></code> and <code class="docutils literal notranslate"><span class="pre">left</span></code> margins of  <code class="docutils literal notranslate"><span class="pre">100</span></code>, <code class="docutils literal notranslate"><span class="pre">150</span></code>, <code class="docutils literal notranslate"><span class="pre">100</span></code> and <code class="docutils literal notranslate"><span class="pre">80</span></code> pixels.</p>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">flex</span></code> attribute can hold values for <code class="docutils literal notranslate"><span class="pre">flex-grow</span></code>, <code class="docutils literal notranslate"><span class="pre">flex-shrink</span></code> and <code class="docutils literal notranslate"><span class="pre">flex-basis</span></code>. The <code class="docutils literal notranslate"><span class="pre">border</span></code> attribute is a shorthand property for <code class="docutils literal notranslate"><span class="pre">border-width</span></code>, <code class="docutils literal notranslate"><span class="pre">border-style</span> <span class="pre">(required)</span></code>, and <code class="docutils literal notranslate"><span class="pre">border-color</span></code>.</p>
+</section>
+</section>
+<section id="layout-example">
+<h3><code class="docutils literal notranslate"><span class="pre">Layout</span></code> example<a class="headerlink" href="#layout-example" title="Link to this heading">#</a></h3>
+<p>The following example shows how to resize a <code class="docutils literal notranslate"><span class="pre">Button</span></code> so that its views have a height of <code class="docutils literal notranslate"><span class="pre">80px</span></code> and a width of <code class="docutils literal notranslate"><span class="pre">50%</span></code> of the available space. It also includes an example of setting a CSS property that requires multiple values (a border, in this case):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Layout</span>
+
+<span class="n">b1</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;(50% width, 80px height) button&#39;</span><span class="p">,</span>
+           <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;50%&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;80px&#39;</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="s1">&#39;2px dotted blue&#39;</span><span class="p">))</span>
+<span class="n">b1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "4d552566a0004028b722cdc3e7a191fe"}</script></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">layout</span></code> property can be shared between multiple widgets and assigned directly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Another button with the same layout&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">b1</span><span class="o">.</span><span class="n">layout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "e5396552e4d64d548ff0b5d90d461d7e"}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b1</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="s1">&#39;30%&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise">
+<h4>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h4>
+<p>In the cell below, make the button’s border solid and green and make its width 70 pixels.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b1</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span> <span class="c1"># fill this in, might take more than one line</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="n">b1</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span> <span class="c1"># fill this in, might take more than one line</span>
+               <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="container-layout-widgets">
+<h2>Container Layout Widgets<a class="headerlink" href="#container-layout-widgets" title="Link to this heading">#</a></h2>
+<ul>
+<li><h3 class="rubric" id="flexbox-css-layout-based">Flexbox CSS layout based</h3>
+<p>The <em>Flexbox</em> CSS specification is great for laying out items in a single direction, horizontally or vertically. Two dimensional layout can be done with flexbox by using a combination of horizontal and vertical components with some limitations. A notebook with more details about <a class="reference internal" href="reference_guides/guide-flex-box.html"><span class="std std-doc">widgets and the Flexbox model</span></a> is available.</p>
+<ul class="simple">
+<li><p><strong>Box</strong>: Base container widget for creating Flexbox layout</p>
+<ul>
+<li><p><strong>HBox</strong>: Container widget with horizontal Flexbox layout</p></li>
+<li><p><strong>VBox</strong>: Container widget with vertical Flexbox layout</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h3 class="rubric" id="grid-css-layout-based">Grid CSS layout based</h3>
+<p>The <em>Grid</em> CSS specification is designed to be used for two dimensional layout. There are properties for specifying the number of items in each row or column, how they should be sized, and how items should be aligned.
+A notebook with more details about <a class="reference internal" href="reference_guides/guide-grid-box.html"><span class="std std-doc">widgets and the Grid model</span></a> is available.</p>
+<ul class="simple">
+<li><p><strong>GridBox</strong>: Base container widget for creating Grid layout</p>
+<ul>
+<li><p><strong>TwoByTwoLayout</strong>: A layout with 2 x 2 grid</p></li>
+<li><p><strong>AppLayout</strong>: Application like layout with header, footer and sidebars</p></li>
+<li><p><strong>GridspecLayout</strong>: m x n grid layout</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<section id="for-more-information-about-flexbox-and-grid">
+<h3>For more information about Flexbox and Grid<a class="headerlink" href="#for-more-information-about-flexbox-and-grid" title="Link to this heading">#</a></h3>
+<p>If you want to learn more about CSS layout after this tutorial, take a look at this <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout">excellent set of articles on CSS layout at MDN</a>. The Flexbox and Grid articles each have links to more extensive guides at the end of the article.</p>
+</section>
+</section>
+<section id="the-flexbox-layout">
+<h2>The Flexbox Layout<a class="headerlink" href="#the-flexbox-layout" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">HBox</span></code> and <code class="docutils literal notranslate"><span class="pre">VBox</span></code> classes are special cases of the <code class="docutils literal notranslate"><span class="pre">Box</span></code> widget.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Box</span></code> widget enables the entire CSS flexbox spec as well as the Grid layout spec, enabling rich reactive layouts in the Jupyter notebook. It aims at providing an efficient way to lay out, align and distribute space among items in a container.</p>
+<p>Again, the whole flexbox spec is exposed via the <code class="docutils literal notranslate"><span class="pre">layout</span></code> attribute of the container widget (<code class="docutils literal notranslate"><span class="pre">Box</span></code>) and the contained items. One may share the same <code class="docutils literal notranslate"><span class="pre">layout</span></code> attribute among all the contained items.</p>
+<p>We will revisit more of the flexbox spec later in this tutorial. For now, let’s look at a couple of examples using <code class="docutils literal notranslate"><span class="pre">VBox</span></code> and <code class="docutils literal notranslate"><span class="pre">HBox</span></code>.</p>
+<section id="the-vbox-and-hbox-helpers">
+<h3>The VBox and HBox helpers<a class="headerlink" href="#the-vbox-and-hbox-helpers" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">VBox</span></code> and <code class="docutils literal notranslate"><span class="pre">HBox</span></code> helper classes provide simple defaults to arrange child widgets in vertical and horizontal boxes.</p>
+</section>
+<section id="hbox-and-vbox-examples">
+<h3>HBox and VBox Examples<a class="headerlink" href="#hbox-and-vbox-examples" title="Link to this heading">#</a></h3>
+<p>Most of the core-widgets have default heights and widths that tile well together. This allows simple layouts based on the <code class="docutils literal notranslate"><span class="pre">HBox</span></code> and <code class="docutils literal notranslate"><span class="pre">VBox</span></code> helper functions to align naturally.</p>
+<section id="four-buttons-in-a-vbox-items-stretch-to-the-maximum-width-in-a-vertical-box-taking-50-of-the-available-space">
+<h4>Four buttons in a VBox. Items stretch to the maximum width, in a vertical box taking <code class="docutils literal notranslate"><span class="pre">50%</span></code> of the available space.<a class="headerlink" href="#four-buttons-in-a-vbox-items-stretch-to-the-maximum-width-in-a-vertical-box-taking-50-of-the-available-space" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">VBox</span>
+
+<span class="n">items_layout</span> <span class="o">=</span> <span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>     <span class="c1"># override the default width of the button to &#39;auto&#39; to let the button grow</span>
+
+<span class="n">box_layout</span> <span class="o">=</span> <span class="n">Layout</span><span class="p">(</span><span class="n">border</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span>
+                    <span class="n">width</span><span class="o">=</span><span class="s1">&#39;50%&#39;</span><span class="p">)</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;correct&#39;</span><span class="p">,</span> <span class="s1">&#39;horse&#39;</span><span class="p">,</span> <span class="s1">&#39;battery&#39;</span><span class="p">,</span> <span class="s1">&#39;staple&#39;</span><span class="p">]</span>
+<span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">word</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">items_layout</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;danger&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+<span class="n">box</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="n">items</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">box_layout</span><span class="p">)</span>
+<span class="n">box</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-reactive-form">
+<h4>A reactive form<a class="headerlink" href="#a-reactive-form" title="Link to this heading">#</a></h4>
+<p>The form is a <code class="docutils literal notranslate"><span class="pre">VBox</span></code> of width ‘50%’. Each row in the VBox is an HBox, that justifies the content with space between.</p>
+<p>Note that the labels and interactive elements are nicely aligned.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">HBox</span><span class="p">,</span> <span class="n">VBox</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">FloatText</span><span class="p">,</span> <span class="n">Textarea</span><span class="p">,</span> <span class="n">Dropdown</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">IntSlider</span>
+
+<span class="c1"># space-between divides the whitespace evenly between elements</span>
+<span class="n">form_item_layout</span> <span class="o">=</span> <span class="n">Layout</span><span class="p">(</span><span class="n">justify_content</span><span class="o">=</span><span class="s1">&#39;space-between&#39;</span><span class="p">)</span>
+
+<span class="n">form_items</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">HBox</span><span class="p">([</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Storage capacity&#39;</span><span class="p">),</span> <span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">512</span><span class="p">)],</span> <span class="n">layout</span><span class="o">=</span><span class="n">form_item_layout</span><span class="p">),</span>
+    <span class="n">HBox</span><span class="p">([</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Egg style&#39;</span><span class="p">),</span>
+         <span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Scrambled&#39;</span><span class="p">,</span> <span class="s1">&#39;Sunny side up&#39;</span><span class="p">,</span> <span class="s1">&#39;Over easy&#39;</span><span class="p">])],</span> <span class="n">layout</span><span class="o">=</span><span class="n">form_item_layout</span><span class="p">),</span>
+    <span class="n">HBox</span><span class="p">([</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Ship size&#39;</span><span class="p">),</span>
+         <span class="n">FloatText</span><span class="p">()],</span> <span class="n">layout</span><span class="o">=</span><span class="n">form_item_layout</span><span class="p">),</span>
+    <span class="n">HBox</span><span class="p">([</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Information&#39;</span><span class="p">),</span>
+         <span class="n">Textarea</span><span class="p">()],</span> <span class="n">layout</span><span class="o">=</span><span class="n">form_item_layout</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">form</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">(</span><span class="n">form_items</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span>
+    <span class="n">border</span><span class="o">=</span><span class="s1">&#39;2px solid gray&#39;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;10px&#39;</span><span class="p">,</span>
+    <span class="n">align_items</span><span class="o">=</span><span class="s1">&#39;stretch&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;50%&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">form</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="the-grid-layout">
+<h2>The Grid Layout<a class="headerlink" href="#the-grid-layout" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">GridBox</span></code> class is a special case of the <code class="docutils literal notranslate"><span class="pre">Box</span></code> widget.</p>
+<p>The whole grid layout spec is exposed via the <code class="docutils literal notranslate"><span class="pre">layout</span></code> attribute of the container widget (<code class="docutils literal notranslate"><span class="pre">Box</span></code>) and the contained items. One may share the same <code class="docutils literal notranslate"><span class="pre">layout</span></code> attribute among all the contained items.</p>
+<p>This tutorial focuses on the higher-level layout options that are based on the grid spec:</p>
+<ul class="simple">
+<li><p><strong>TwoByTwoLayout</strong>: A layout with 2 x 2 grid</p></li>
+<li><p><strong>AppLayout</strong>: Application like layout with header, footer and sidebars</p></li>
+<li><p><strong>GridspecLayout</strong>: m x n grid layout</p></li>
+</ul>
+<p>A more detailed description of the <a class="reference internal" href="reference_guides/guide-grid-box.html"><span class="std std-doc">Grid layout is available</span></a>. The <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout#Guides">Grid layout guide on MDN</a> is also excellent.</p>
+</section>
+<section id="grid-layout-template-examples">
+<h2>Grid Layout Template Examples<a class="headerlink" href="#grid-layout-template-examples" title="Link to this heading">#</a></h2>
+<section id="some-setup">
+<h3>Some setup<a class="headerlink" href="#some-setup" title="Link to this heading">#</a></h3>
+<p>The cell below creates several buttons for use in the examples that follow.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Utils widgets</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">jslink</span><span class="p">,</span> <span class="n">IntText</span><span class="p">,</span> <span class="n">IntSlider</span>
+
+<span class="k">def</span> <span class="nf">create_expanded_button</span><span class="p">(</span><span class="n">description</span><span class="p">,</span> <span class="n">button_style</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="n">button_style</span><span class="p">,</span> 
+                  <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">))</span>
+
+<span class="n">top_left_button</span> <span class="o">=</span> <span class="n">create_expanded_button</span><span class="p">(</span><span class="s2">&quot;Top left&quot;</span><span class="p">,</span> <span class="s1">&#39;info&#39;</span><span class="p">)</span>
+<span class="n">top_right_button</span> <span class="o">=</span> <span class="n">create_expanded_button</span><span class="p">(</span><span class="s2">&quot;Top right&quot;</span><span class="p">,</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
+<span class="n">bottom_left_button</span> <span class="o">=</span> <span class="n">create_expanded_button</span><span class="p">(</span><span class="s2">&quot;Bottom left&quot;</span><span class="p">,</span> <span class="s1">&#39;danger&#39;</span><span class="p">)</span>
+<span class="n">bottom_right_button</span> <span class="o">=</span> <span class="n">create_expanded_button</span><span class="p">(</span><span class="s2">&quot;Bottom right&quot;</span><span class="p">,</span> <span class="s1">&#39;warning&#39;</span><span class="p">)</span>
+
+<span class="n">top_left_text</span> <span class="o">=</span> <span class="n">IntText</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Top left&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">))</span>
+<span class="n">top_right_text</span> <span class="o">=</span> <span class="n">IntText</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Top right&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">))</span>
+<span class="n">bottom_left_slider</span> <span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Bottom left&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">))</span>
+<span class="n">bottom_right_slider</span> <span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Bottom right&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="twobytwolayout">
+<h3>TwoByTwoLayout<a class="headerlink" href="#twobytwolayout" title="Link to this heading">#</a></h3>
+<p>You can easily create a layout with 4 widgets arranged in a 2x2 grid using the <code class="docutils literal notranslate"><span class="pre">TwoByTwoLayout</span></code> widget:</p>
+<p><strong>2x2 Grid</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">TwoByTwoLayout</span>
+
+<span class="n">TwoByTwoLayout</span><span class="p">(</span><span class="n">top_left</span><span class="o">=</span><span class="n">top_left_button</span><span class="p">,</span>
+               <span class="n">top_right</span><span class="o">=</span><span class="n">top_right_button</span><span class="p">,</span>
+               <span class="n">bottom_left</span><span class="o">=</span><span class="n">bottom_left_button</span><span class="p">,</span>
+               <span class="n">bottom_right</span><span class="o">=</span><span class="n">bottom_right_button</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you don’t define a widget for some of the slots, the layout will automatically re-configure itself by merging neighboring cells</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TwoByTwoLayout</span><span class="p">(</span><span class="n">top_left</span><span class="o">=</span><span class="n">top_left_button</span><span class="p">,</span>
+               <span class="n">bottom_left</span><span class="o">=</span><span class="n">bottom_left_button</span><span class="p">,</span>
+               <span class="n">bottom_right</span><span class="o">=</span><span class="n">bottom_right_button</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can pass <code class="docutils literal notranslate"><span class="pre">merge=False</span></code> in the argument of the <code class="docutils literal notranslate"><span class="pre">TwoByTwoLayout</span></code> constructor if you don’t want this behavior</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">layout_2x2</span> <span class="o">=</span> <span class="n">TwoByTwoLayout</span><span class="p">(</span><span class="n">top_left</span><span class="o">=</span><span class="n">top_left_button</span><span class="p">,</span>
+               <span class="n">bottom_left</span><span class="o">=</span><span class="n">bottom_left_button</span><span class="p">,</span>
+               <span class="n">bottom_right</span><span class="o">=</span><span class="n">bottom_right_button</span><span class="p">,</span>
+               <span class="n">merge</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">layout_2x2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can access the widgets in the grid:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">layout_2x2</span><span class="o">.</span><span class="n">bottom_right</span><span class="o">.</span><span class="n">button_style</span> <span class="o">=</span> <span class="s1">&#39;primary&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can add a missing widget even after the layout initialization:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">layout_2x2</span><span class="o">.</span><span class="n">top_right</span> <span class="o">=</span> <span class="n">top_right_button</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">layout_2x2</span><span class="o">.</span><span class="n">grid_gap</span> <span class="o">=</span> <span class="s1">&#39;10px&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bqplot-figure-with-linked-sliders">
+<h3>bqplot Figure with linked sliders<a class="headerlink" href="#bqplot-figure-with-linked-sliders" title="Link to this heading">#</a></h3>
+<p>You can easily create more complex layouts with custom widgets. For example, you can use a <a class="reference external" href="https://github.com/bqplot/bqplot">bqplot</a> Figure widget to add plots:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bqplot</span> <span class="k">as</span> <span class="nn">bq</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">x_data</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="n">y_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="n">y_data_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="n">y_data_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">*</span> <span class="mf">100.</span><span class="p">)</span>
+
+<span class="n">x_ord</span> <span class="o">=</span> <span class="n">bq</span><span class="o">.</span><span class="n">OrdinalScale</span><span class="p">()</span>
+<span class="n">y_sc</span> <span class="o">=</span> <span class="n">bq</span><span class="o">.</span><span class="n">LinearScale</span><span class="p">()</span>
+
+<span class="n">bar</span> <span class="o">=</span> <span class="n">bq</span><span class="o">.</span><span class="n">Bars</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">scales</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x_ord</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y_sc</span><span class="p">})</span>
+<span class="n">ax_x</span> <span class="o">=</span> <span class="n">bq</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">x_ord</span><span class="p">)</span>
+<span class="n">ax_y</span> <span class="o">=</span> <span class="n">bq</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">y_sc</span><span class="p">,</span> <span class="n">tick_format</span><span class="o">=</span><span class="s1">&#39;0.2f&#39;</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">bq</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">marks</span><span class="o">=</span><span class="p">[</span><span class="n">bar</span><span class="p">],</span> <span class="n">axes</span><span class="o">=</span><span class="p">[</span><span class="n">ax_x</span><span class="p">,</span> <span class="n">ax_y</span><span class="p">],</span> <span class="n">padding_x</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span> <span class="n">padding_y</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span>
+                <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;90%&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">FloatSlider</span>
+
+<span class="n">max_slider</span> <span class="o">=</span> <span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Max: &quot;</span><span class="p">,</span>
+                         <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">))</span>
+<span class="n">min_slider</span> <span class="o">=</span> <span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Min: &quot;</span><span class="p">,</span>
+                         <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">))</span>
+
+<span class="c1"># Set up two sliders and a graph. The &quot;max&quot; slider sets the upper limit for the &quot;min&quot; </span>
+<span class="c1"># slider, and the value of the &quot;min&quot; slider sets the upper limit for the &quot;max&quot; slider.</span>
+<span class="n">bqfig</span> <span class="o">=</span> <span class="n">TwoByTwoLayout</span><span class="p">(</span><span class="n">top_left</span><span class="o">=</span><span class="n">min_slider</span><span class="p">,</span>
+                     <span class="n">bottom_left</span><span class="o">=</span><span class="n">max_slider</span><span class="p">,</span> 
+                     <span class="n">bottom_right</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span>
+                     <span class="n">align_items</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> 
+                     <span class="n">height</span><span class="o">=</span><span class="s1">&#39;400px&#39;</span><span class="p">)</span>
+
+<span class="n">jslink</span><span class="p">((</span><span class="n">y_sc</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">max_slider</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+<span class="n">jslink</span><span class="p">((</span><span class="n">y_sc</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">min_slider</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+<span class="n">jslink</span><span class="p">((</span><span class="n">min_slider</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">max_slider</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+<span class="n">jslink</span><span class="p">((</span><span class="n">max_slider</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">min_slider</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+
+<span class="n">max_slider</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">bqfig</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="applayout">
+<h2>AppLayout<a class="headerlink" href="#applayout" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">AppLayout</span></code> is a widget layout template that allows you to create an application-like widget arrangements. It consists of a header, a footer, two sidebars and a central pane:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">AppLayout</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Layout</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">header_button</span> <span class="o">=</span> <span class="n">create_expanded_button</span><span class="p">(</span><span class="s1">&#39;Header&#39;</span><span class="p">,</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
+<span class="n">left_button</span> <span class="o">=</span> <span class="n">create_expanded_button</span><span class="p">(</span><span class="s1">&#39;Left&#39;</span><span class="p">,</span> <span class="s1">&#39;info&#39;</span><span class="p">)</span>
+<span class="n">center_button</span> <span class="o">=</span> <span class="n">create_expanded_button</span><span class="p">(</span><span class="s1">&#39;Center&#39;</span><span class="p">,</span> <span class="s1">&#39;warning&#39;</span><span class="p">)</span>
+<span class="n">right_button</span> <span class="o">=</span> <span class="n">create_expanded_button</span><span class="p">(</span><span class="s1">&#39;Right&#39;</span><span class="p">,</span> <span class="s1">&#39;info&#39;</span><span class="p">)</span>
+<span class="n">footer_button</span> <span class="o">=</span> <span class="n">create_expanded_button</span><span class="p">(</span><span class="s1">&#39;Footer&#39;</span><span class="p">,</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AppLayout</span><span class="p">(</span><span class="n">header</span><span class="o">=</span><span class="n">header_button</span><span class="p">,</span>
+          <span class="n">left_sidebar</span><span class="o">=</span><span class="n">left_button</span><span class="p">,</span>
+          <span class="n">center</span><span class="o">=</span><span class="n">center_button</span><span class="p">,</span>
+          <span class="n">right_sidebar</span><span class="o">=</span><span class="n">right_button</span><span class="p">,</span>
+          <span class="n">footer</span><span class="o">=</span><span class="n">footer_button</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>However with the automatic merging feature, it’s possible to achieve many other layouts:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AppLayout</span><span class="p">(</span><span class="n">header</span><span class="o">=</span><span class="n">header_button</span><span class="p">,</span>
+          <span class="n">left_sidebar</span><span class="o">=</span><span class="n">left_button</span><span class="p">,</span>
+          <span class="n">center</span><span class="o">=</span><span class="n">center_button</span><span class="p">,</span>
+          <span class="n">right_sidebar</span><span class="o">=</span><span class="n">right_button</span><span class="p">,</span>
+          <span class="n">footer</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AppLayout</span><span class="p">(</span><span class="n">header</span><span class="o">=</span><span class="n">header_button</span><span class="p">,</span>
+          <span class="n">left_sidebar</span><span class="o">=</span><span class="n">left_button</span><span class="p">,</span>
+          <span class="n">center</span><span class="o">=</span><span class="n">center_button</span><span class="p">,</span>
+          <span class="n">right_sidebar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+          <span class="n">footer</span><span class="o">=</span><span class="n">footer_button</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h3>Exercise<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>In the cell below make an <code class="docutils literal notranslate"><span class="pre">AppLayout</span></code> with no sidebars.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load solutions/applayout-no-sides.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also modify the relative and absolute widths and heights of the panes using <code class="docutils literal notranslate"><span class="pre">pane_widths</span></code> and <code class="docutils literal notranslate"><span class="pre">pane_heights</span></code> arguments. Both accept a sequence of three elements, each of which is either an integer (equivalent to the weight given to the row/column) or a string in the format <code class="docutils literal notranslate"><span class="pre">'1fr'</span></code> (denoting one portion of the free space available) or <code class="docutils literal notranslate"><span class="pre">'100px'</span></code> (absolute size).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">AppLayout</span><span class="p">(</span><span class="n">header</span><span class="o">=</span><span class="n">header_button</span><span class="p">,</span>
+          <span class="n">left_sidebar</span><span class="o">=</span><span class="n">left_button</span><span class="p">,</span>
+          <span class="n">center</span><span class="o">=</span><span class="n">center_button</span><span class="p">,</span>
+          <span class="n">right_sidebar</span><span class="o">=</span><span class="n">right_button</span><span class="p">,</span>
+          <span class="n">footer</span><span class="o">=</span><span class="n">footer_button</span><span class="p">)</span>
+<span class="n">app</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">pane_widths</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;200px&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">pane_widths</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;200px&#39;</span><span class="p">,</span> <span class="s1">&#39;3fr&#39;</span><span class="p">,</span> <span class="s1">&#39;1fr&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">pane_heights</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;100px&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">left_sidebar</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;New Left&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AppLayout</span><span class="p">(</span><span class="n">header</span><span class="o">=</span><span class="n">header_button</span><span class="p">,</span>
+          <span class="n">left_sidebar</span><span class="o">=</span><span class="n">left_button</span><span class="p">,</span>
+          <span class="n">center</span><span class="o">=</span><span class="n">center_button</span><span class="p">,</span>
+          <span class="n">right_sidebar</span><span class="o">=</span><span class="n">right_button</span><span class="p">,</span>
+          <span class="n">footer</span><span class="o">=</span><span class="n">footer_button</span><span class="p">,</span>
+          <span class="n">pane_widths</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+          <span class="n">pane_heights</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;60px&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h3>Exercise<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Make an <code class="docutils literal notranslate"><span class="pre">AppLayout</span></code> in which there is a header, but no footer or right sidebar. Make the center the <a class="reference internal" href="#bqplot-Figure-with-linked-sliders"><span class="xref myst">bqplot with slider demo above</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load solutions/slider-bqplot-sliders-app.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For an additional challenge, make the header button reset the sliders to their original position by using an event handler.</p>
+</section>
+</section>
+<section id="gridspeclayout">
+<h2>GridspecLayout<a class="headerlink" href="#gridspeclayout" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">GridspecLayout</span></code> is an M-by-N grid layout allowing for flexible layout definitions using an API similar to matplotlib’s <a class="reference external" href="https://matplotlib.org/tutorials/intermediate/gridspec.html#sphx-glr-tutorials-intermediate-gridspec-py">GridSpec</a>.</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">GridspecLayout</span></code> to define a simple regularly-spaced grid. For example, to create a 4x3 layout:</p>
+<p><strong>M x N grid of buttons</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">GridspecLayout</span>
+
+<span class="n">grid</span> <span class="o">=</span> <span class="n">GridspecLayout</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">create_expanded_button</span><span class="p">(</span><span class="s1">&#39;Button </span><span class="si">{}</span><span class="s1"> - </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> <span class="s1">&#39;warning&#39;</span><span class="p">)</span>
+<span class="n">grid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Spanning range of columns and/or rows</strong></p>
+<p>To make a widget span several columns and/or rows, you can use slice notation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">GridspecLayout</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">create_expanded_button</span><span class="p">(</span><span class="s1">&#39;One&#39;</span><span class="p">,</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">create_expanded_button</span><span class="p">(</span><span class="s1">&#39;Two&#39;</span><span class="p">,</span> <span class="s1">&#39;info&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">create_expanded_button</span><span class="p">(</span><span class="s1">&#39;Three&#39;</span><span class="p">,</span> <span class="s1">&#39;warning&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">create_expanded_button</span><span class="p">(</span><span class="s1">&#39;Four&#39;</span><span class="p">,</span> <span class="s1">&#39;danger&#39;</span><span class="p">)</span>
+<span class="n">grid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can still change properties of the widgets stored in the grid, using the same indexing notation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;I am the blue one&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Note</strong>: It’s enough to pass an index of one of the grid cells occupied by the widget of interest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">create_expanded_button</span><span class="p">(</span><span class="s1">&#39;New button!!&#39;</span><span class="p">,</span> <span class="s1">&#39;danger&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">create_expanded_button</span><span class="p">(</span><span class="s1">&#39;I am new too!!!!!&#39;</span><span class="p">,</span> <span class="s1">&#39;warning&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;A better label&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="chart-grid-with-scatter-plots-and-histograms">
+<h3>Chart grid with scatter plots and histograms<a class="headerlink" href="#chart-grid-with-scatter-plots-and-histograms" title="Link to this heading">#</a></h3>
+<p>In this example, we will demonstrate how to use <code class="docutils literal notranslate"><span class="pre">GridspecLayout</span></code> and <code class="docutils literal notranslate"><span class="pre">bqplot</span></code> widget to create a multipanel scatter plot. To run this example you will need to install the <a class="reference external" href="https://github.com/bqplot/bqplot">bqplot</a> package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bqplot</span> <span class="k">as</span> <span class="nn">bq</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">GridspecLayout</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Layout</span>
+
+<span class="n">n_features</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">data</span><span class="p">[:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">**</span><span class="mi">2</span>
+<span class="n">data</span><span class="p">[</span><span class="mi">50</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">+=</span> <span class="mi">4</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_features</span><span class="p">,</span> <span class="n">n_features</span><span class="p">)</span><span class="o">/</span><span class="mi">5</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
+
+<span class="n">scales_x</span> <span class="o">=</span> <span class="p">[</span><span class="n">bq</span><span class="o">.</span><span class="n">LinearScale</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">)]</span>
+<span class="n">scales_y</span> <span class="o">=</span> <span class="p">[</span><span class="n">bq</span><span class="o">.</span><span class="n">LinearScale</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">)]</span>
+
+<span class="n">gs</span> <span class="o">=</span> <span class="n">GridspecLayout</span><span class="p">(</span><span class="n">n_features</span><span class="p">,</span> <span class="n">n_features</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">):</span>
+        
+        <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">sc_x</span> <span class="o">=</span> <span class="n">scales_x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">sc_y</span> <span class="o">=</span> <span class="n">scales_y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+            <span class="n">scatt</span> <span class="o">=</span> <span class="n">bq</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[:,</span> <span class="n">j</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">data</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">scales</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">sc_x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">sc_y</span><span class="p">})</span>
+
+            <span class="n">gs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">bq</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">marks</span><span class="o">=</span><span class="p">[</span><span class="n">scatt</span><span class="p">],</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">),</span>
+                                 <span class="n">fig_margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span> <span class="n">background_style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;fill&#39;</span><span class="p">:</span><span class="s1">&#39;#f5f5ff&#39;</span><span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sc_x</span> <span class="o">=</span> <span class="n">scales_x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">sc_y</span> <span class="o">=</span> <span class="n">bq</span><span class="o">.</span><span class="n">LinearScale</span><span class="p">()</span>
+        
+            <span class="n">hist</span> <span class="o">=</span> <span class="n">bq</span><span class="o">.</span><span class="n">Hist</span><span class="p">(</span><span class="n">sample</span><span class="o">=</span><span class="n">data</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">scales</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;sample&#39;</span><span class="p">:</span> <span class="n">sc_x</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">:</span> <span class="n">sc_y</span><span class="p">})</span>
+            
+            <span class="n">gs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">bq</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">marks</span><span class="o">=</span><span class="p">[</span><span class="n">hist</span><span class="p">],</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">),</span>
+                                 <span class="n">fig_margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span> <span class="n">background_style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;fill&#39;</span><span class="p">:</span><span class="s1">&#39;#f5f5ff&#39;</span><span class="p">})</span>
+<span class="n">gs</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="gridbox-examples">
+<h2>GridBox Examples<a class="headerlink" href="#gridbox-examples" title="Link to this heading">#</a></h2>
+<section id="x3-grid-with-custom-row-column-sizes">
+<h3>3x3 grid with custom row &amp; column sizes<a class="headerlink" href="#x3-grid-with-custom-row-column-sizes" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">GridBox</span><span class="p">,</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">ButtonStyle</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GridBox</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">),</span>
+                         <span class="n">style</span><span class="o">=</span><span class="n">ButtonStyle</span><span class="p">(</span><span class="n">button_color</span><span class="o">=</span><span class="s1">&#39;darkseagreen&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+                 <span class="p">],</span>
+        <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span>
+            <span class="n">width</span><span class="o">=</span><span class="s1">&#39;50%&#39;</span><span class="p">,</span>
+            <span class="n">grid_template_columns</span><span class="o">=</span><span class="s1">&#39;100px 50px 100px&#39;</span><span class="p">,</span>
+            <span class="n">grid_template_rows</span><span class="o">=</span><span class="s1">&#39;80px auto 80px&#39;</span><span class="p">,</span> 
+            <span class="n">grid_gap</span><span class="o">=</span><span class="s1">&#39;5px 10px&#39;</span><span class="p">)</span>
+       <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h3>
+<p><strong>Add more buttons</strong></p>
+<p>Modify the code above to place more buttons in the <code class="docutils literal notranslate"><span class="pre">GridBox</span></code> (do <em>not</em> modify the layout). Any number of buttons larger than 9 is fine.</p>
+<ol class="arabic simple">
+<li><p>What happens to the extra buttons? Are they laid out like the first 9 buttons?</p></li>
+</ol>
+<p>The grid template defines a 3x3 grid. If additional children are placed in the grid their properties are determined by the layout properties <code class="docutils literal notranslate"><span class="pre">grid_auto_columns</span></code>, <code class="docutils literal notranslate"><span class="pre">grid_auto_rows</span></code> and <code class="docutils literal notranslate"><span class="pre">grid_auto_flow</span></code> properties.</p>
+<ol class="arabic simple" start="2">
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">grid_auto_rows=&quot;10px&quot;</span></code> and rerun the example with more than 9 buttons.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">grid_auto_rows</span></code> so that the automatically added rows have the same format as the templated rows.</p></li>
+</ol>
+</section>
+</section>
+<section id="an-alternate-way-of-defining-the-grid-using-grid-areas">
+<h2>An alternate way of defining the grid, using grid areas<a class="headerlink" href="#an-alternate-way-of-defining-the-grid-using-grid-areas" title="Link to this heading">#</a></h2>
+<p>The grid can also be set up using a description words. The layout below defines a grid with 4 columns and 3 rows. The first row is a header, the bottom row is a footer, and the middle row has content in the first two columns, then an empty cell, followed by a sidebar.</p>
+<p>Widgets are assigned to each of these areas by setting the widgets’s layout <code class="docutils literal notranslate"><span class="pre">grid_area</span></code> to the name of the area.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="s2">&quot;header header header header&quot;</span>
+    <span class="s2">&quot;main main . sidebar &quot;</span>
+    <span class="s2">&quot;footer footer footer footer&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">header</span>  <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Header&#39;</span><span class="p">,</span>
+                 <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">grid_area</span><span class="o">=</span><span class="s1">&#39;header&#39;</span><span class="p">),</span>
+                 <span class="n">style</span><span class="o">=</span><span class="n">ButtonStyle</span><span class="p">(</span><span class="n">button_color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">))</span>
+<span class="n">main</span>    <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Main&#39;</span><span class="p">,</span>
+                 <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">grid_area</span><span class="o">=</span><span class="s1">&#39;main&#39;</span><span class="p">),</span>
+                 <span class="n">style</span><span class="o">=</span><span class="n">ButtonStyle</span><span class="p">(</span><span class="n">button_color</span><span class="o">=</span><span class="s1">&#39;moccasin&#39;</span><span class="p">))</span>
+<span class="n">sidebar</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Sidebar&#39;</span><span class="p">,</span>
+                 <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">grid_area</span><span class="o">=</span><span class="s1">&#39;sidebar&#39;</span><span class="p">),</span>
+                 <span class="n">style</span><span class="o">=</span><span class="n">ButtonStyle</span><span class="p">(</span><span class="n">button_color</span><span class="o">=</span><span class="s1">&#39;salmon&#39;</span><span class="p">))</span>
+<span class="n">footer</span>  <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Footer&#39;</span><span class="p">,</span>
+                 <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">grid_area</span><span class="o">=</span><span class="s1">&#39;footer&#39;</span><span class="p">),</span>
+                 <span class="n">style</span><span class="o">=</span><span class="n">ButtonStyle</span><span class="p">(</span><span class="n">button_color</span><span class="o">=</span><span class="s1">&#39;olive&#39;</span><span class="p">))</span>
+
+<span class="n">GridBox</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">header</span><span class="p">,</span> <span class="n">main</span><span class="p">,</span> <span class="n">sidebar</span><span class="p">,</span> <span class="n">footer</span><span class="p">],</span>
+        <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span>
+            <span class="n">width</span><span class="o">=</span><span class="s1">&#39;50%&#39;</span><span class="p">,</span>
+            <span class="n">align_items</span><span class="o">=</span><span class="s1">&#39;stretch&#39;</span><span class="p">,</span>
+            <span class="n">grid_template_rows</span><span class="o">=</span><span class="s1">&#39;auto auto auto&#39;</span><span class="p">,</span>
+            <span class="n">grid_template_columns</span><span class="o">=</span><span class="s1">&#39;25</span><span class="si">% 25%</span><span class="s1"> 25</span><span class="si">% 25%</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="n">grid_template_areas</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            &quot;header header header header&quot;</span>
+<span class="s1">            &quot;main main . sidebar&quot;</span>
+<span class="s1">            &quot;footer footer footer footer&quot;</span>
+<span class="s1">            &#39;&#39;&#39;</span><span class="p">)</span>
+       <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id3">
+<h3>Exercises<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="make-the-main-area-larger">
+<h4>Make the main area larger<a class="headerlink" href="#make-the-main-area-larger" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Add another row or two to the template area so that the main area is 3 rows high and 2 columns wide.</p></li>
+</ol>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="#06.00-Layout-and-Styling-Overview.ipynb"><span class="xref myst">Layout and Styling of Jupyter widgets</span></a> | <a class="reference internal" href="#00.00-index.ipynb"><span class="xref myst">Contents</span></a> | <a class="reference internal" href="#06.02-OPTIONAL-widget-label-styling.ipynb"><span class="xref myst">OPTIONAL - Widget label styling</span></a> &gt;</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "widgets-tutorial"
+        },
+        kernelOptions: {
+            name: "widgets-tutorial",
+            path: "./04.Widget_styling"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'widgets-tutorial'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04.00-Layout-and-Styling-Overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Layout and Styling of Jupyter widgets</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04.03-more-flexbox-layout.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">More about the flexbox layout</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-style-attribute">The <code class="docutils literal notranslate"><span class="pre">style</span></code> attribute</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#style-example">Style Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#button-style-and-bar-style-attributes"><code class="docutils literal notranslate"><span class="pre">button_style</span></code> and <code class="docutils literal notranslate"><span class="pre">bar_style</span></code> attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-attribute-the-foundation-of-widget-layout"><code class="docutils literal notranslate"><span class="pre">layout</span></code> attribute: the foundation of widget layout</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exposed-css-properties">Exposed CSS properties</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shorthand-css-properties">Shorthand CSS properties</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layout-example"><code class="docutils literal notranslate"><span class="pre">Layout</span></code> example</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#container-layout-widgets">Container Layout Widgets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-more-information-about-flexbox-and-grid">For more information about Flexbox and Grid</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-flexbox-layout">The Flexbox Layout</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-vbox-and-hbox-helpers">The VBox and HBox helpers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hbox-and-vbox-examples">HBox and VBox Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#four-buttons-in-a-vbox-items-stretch-to-the-maximum-width-in-a-vertical-box-taking-50-of-the-available-space">Four buttons in a VBox. Items stretch to the maximum width, in a vertical box taking <code class="docutils literal notranslate"><span class="pre">50%</span></code> of the available space.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-reactive-form">A reactive form</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-grid-layout">The Grid Layout</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-layout-template-examples">Grid Layout Template Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-setup">Some setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#twobytwolayout">TwoByTwoLayout</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bqplot-figure-with-linked-sliders">bqplot Figure with linked sliders</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applayout">AppLayout</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gridspeclayout">GridspecLayout</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chart-grid-with-scatter-plots-and-histograms">Chart grid with scatter plots and histograms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gridbox-examples">GridBox Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#x3-grid-with-custom-row-column-sizes">3x3 grid with custom row &amp; column sizes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-alternate-way-of-defining-the-grid-using-grid-areas">An alternate way of defining the grid, using grid areas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-main-area-larger">Make the main area larger</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By IroaseP(resigned)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

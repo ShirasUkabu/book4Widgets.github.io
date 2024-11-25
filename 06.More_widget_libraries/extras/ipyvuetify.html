@@ -1,0 +1,1072 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Ipyvuetify &#8212; Book for Widgets</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '06.More_widget_libraries/extras/ipyvuetify';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ipywebrtc: Video streaming" href="ipywebrtc.html" />
+    <link rel="prev" title="ipyvolume: 3D plotting in the notebook" href="ipyvolume.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Book for Widgets - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Book for Widgets - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">01. Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../01.Introduction/01.00-introduction.html">Jupyter Widgets Tutorial Introduction</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../01.Introduction/01.01-overview.html">Overview</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02. Widget Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../02.Widget_overview/01.Interact/01.00-Using-Interact.html">Widgets without writing widgets: interact</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../02.Widget_overview/01.Interact/01.01-OPTIONAL-More-About-Interact.html">OPTIONAL - More about interact</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../02.Widget_overview/02.Basics/02.00-Widget_Basics.html">Simple Widget Introduction</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../02.Widget_overview/03.WidgetList/03.00-widget-list.html">2.3-1 Ipywidgets Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02.Widget_overview/03.WidgetList/03.01-more-on-output-widget.html">2.3-2 Output</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03. Widget Events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../03.Widget_events/03.00-Widget_Events.html">3.1 Widgets Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03.Widget_events/03.01-OPTIONAL-Widget_Events_2.html"><em>OPTIONAL</em> Three approaches to events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03.Widget_events/03.02-OPTIONAL-Widget_Events_2_--_bad_password_generator%2C_version_1.html"><em>OPTIONAL</em> Password generator: <code class="docutils literal notranslate"><span class="pre">observe</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03.Widget_events/03.03-OPTIONAL-Widget_Events_2_--_Separating_Concerns.html"><em>OPTIONAL</em> Separating the logic from the widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03.Widget_events/03.04-OPTIONAL-Widget_Events_2--Separating_concerns%2C_object_oriented.html"><em>OPTIONAL</em> Separating the logic using classes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04. Widget Styling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../04.Widget_styling/04.00-Layout-and-Styling-Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04.Widget_styling/04.01-widget-layout-and-styling.html">4.1 Layout and Styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04.Widget_styling/04.03-more-flexbox-layout.html">4.2 Flexbox Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04.Widget_styling/04.04-OPTIONAL-widget-label-styling.html">OPTIONAL - Widget label styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04.Widget_styling/04.05-OPTIONAL-widget-specific-styling.html">OPTIONAL Predefined widget styles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04.Widget_styling/04.06-OPTIONAL-container-exercises.html"><em>OPTIONAL</em> widget layout exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04.Widget_styling/Table_of_widget_keys_and_style_keys.html">Scroll down to get to the interesting tables…</a></li>
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">05. Build Complex Libraries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../05.Build-complex-libs/05.00-Build-complex-libraries.html">5.1 Building Complex Widgets Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05.Build-complex-libs/05.01-Refactoring.html">5.2 Refactoring The Class-based Implementation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">06. More Widget Libraries</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../06.00-More_widget_libraries.html">PREVIEW More Widget Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.01-ipycanvas.html">6.1 ipycanvas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.02-ipycytoscape.html">ipycytoscape: Interactive graphs</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../06.03-ipydatagrid.html">6.3 ipydatagrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.04-ipygany.html">6.4 ipygany</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06.05-other-widget-libraries.html">Other widget libraries</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="bqplot.html">bqplot: complex interactive visualizations</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ipyleaflet.html">ipyleaflet: Interactive maps</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="ipympl.html">EXTRAS ipympl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipytree.html">EXTRAS ipytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipyvolume.html">ipyvolume: 3D plotting in the notebook</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Ipyvuetify</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ipywebrtc.html">EXTRAS ipywebrtc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythreejs.html">pythreejs: 3D rendering in the browser</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="PyWWT.html">PyWWT - widget interface to the World Wide Telescope</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">07. Widgets Outside Notebook Context</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../07.Widgets_outside_notebook_context/07.00-voila.html"><em>PREVIEW</em> Dashboarding with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07.Widgets_outside_notebook_context/07.01-voila-basics.html">7.1 Voila Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../07.Widgets_outside_notebook_context/07.02-voila-vuetify.html">Deploying voilà</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../07.Widgets_outside_notebook_context/07.03-jupyterlite.html">Lightweight Jupyter Frontend running in the browser</a></li>
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">08. Ipywidgets 8</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../08.Ipywidgets_8/08.00-ipywidgets_8.html">ipywidgets 8</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F06.More_widget_libraries/extras/ipyvuetify.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/06.More_widget_libraries/extras/ipyvuetify.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Ipyvuetify</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Ipyvuetify</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-new-widget">Making a new widget</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ipyvuetify">
+<h1>Ipyvuetify<a class="headerlink" href="#ipyvuetify" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>QuantStack/SocGen (Olivier Borderier) project</p></li>
+<li><p>Made by Mario Buikhuizen</p></li>
+<li><p>Wraps Vuetify</p>
+<ul>
+<li><p>Vue based</p></li>
+<li><p>Material Design</p></li>
+</ul>
+</li>
+<li><p>Rich set of composable widgets following Material Design spec.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipyvuetify</span> <span class="k">as</span> <span class="nn">v</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Timer</span>
+<span class="n">lorum_ipsum</span> <span class="o">=</span> <span class="s1">&#39;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">ipyvuetify</span> <span class="k">as</span> <span class="nn">v</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Timer</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;ipyvuetify&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;primary&#39;</span><span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;pink lighten-4&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;custom&#39;</span><span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#654321&#39;</span><span class="p">,</span> <span class="n">dark</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;hex&#39;</span><span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#654321&#39;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;disabled&#39;</span><span class="p">]),</span>
+
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;flat&#39;</span><span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;flat&#39;</span><span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;round&#39;</span><span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;round&#39;</span><span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">depressed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;depressed&#39;</span><span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">icon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;thumb_up&#39;</span><span class="p">])]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">outline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;outline&#39;</span><span class="p">]),</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">small</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;small&#39;</span><span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;normal&#39;</span><span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">large</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;large&#39;</span><span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">small</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fab</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;edit&#39;</span><span class="p">])]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">fab</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;edit&#39;</span><span class="p">])]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">fab</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">large</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;edit&#39;</span><span class="p">])]),</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">toggleLoading</span><span class="p">():</span>
+    <span class="n">button2</span><span class="o">.</span><span class="n">loading</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">button2</span><span class="o">.</span><span class="n">loading</span>
+    <span class="n">button2</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="n">button2</span><span class="o">.</span><span class="n">loading</span>
+
+<span class="k">def</span> <span class="nf">on_loader_click</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">toggleLoading</span><span class="p">()</span>
+    <span class="n">Timer</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">toggleLoading</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    
+<span class="n">button2</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">loading</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;loader&#39;</span><span class="p">])</span>
+<span class="n">button2</span><span class="o">.</span><span class="n">on_event</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="n">on_loader_click</span><span class="p">)</span>
+
+<span class="n">v</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">button2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">toggle_single</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">BtnToggle</span><span class="p">(</span><span class="n">v_model</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;mr-3&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;format_align_left&#39;</span><span class="p">])]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;format_align_center&#39;</span><span class="p">])]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;format_align_right&#39;</span><span class="p">])]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;format_align_justify&#39;</span><span class="p">])]),</span>
+<span class="p">])</span>
+
+<span class="n">toggle_multi</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">BtnToggle</span><span class="p">(</span><span class="n">v_model</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">multiple</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;format_bold&#39;</span><span class="p">])]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;format_italic&#39;</span><span class="p">])]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;format_underline&#39;</span><span class="p">])]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;format_color_fill&#39;</span><span class="p">])]),</span>
+<span class="p">])</span>
+
+<span class="n">v</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">toggle_single</span><span class="p">,</span>
+    <span class="n">toggle_multi</span><span class="p">,</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">v</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fingerprint&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;Icon left&#39;</span>
+    <span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+        <span class="s1">&#39;Icon right&#39;</span><span class="p">,</span>
+        <span class="n">v</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">right</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fingerprint&#39;</span><span class="p">]),</span>
+    <span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Tooltip</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">slot</span><span class="o">=</span><span class="s1">&#39;activator&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+           <span class="s1">&#39;tooltip&#39;</span> 
+        <span class="p">]),</span>
+        <span class="s1">&#39;Insert tooltip text here&#39;</span>
+    <span class="p">])</span>    
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_menu_click</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">layout</span><span class="o">.</span><span class="n">children</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="n">children</span> <span class="o">+</span> <span class="p">[</span><span class="n">info</span><span class="p">]</span>
+    <span class="n">info</span><span class="o">.</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Item </span><span class="si">{</span><span class="n">items</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">widget</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1"> clicked&#39;</span><span class="p">]</span>
+    
+
+<span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">ListTile</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">ListTileTitle</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+        <span class="sa">f</span><span class="s1">&#39;Click me </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">])])</span> 
+         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">item</span><span class="o">.</span><span class="n">on_event</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="n">on_menu_click</span><span class="p">)</span>
+
+<span class="n">menu</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">Menu</span><span class="p">(</span><span class="n">offset_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">slot</span><span class="o">=</span><span class="s1">&#39;activator&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+        <span class="s1">&#39;menu&#39;</span><span class="p">,</span> 
+        <span class="n">v</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">right</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+            <span class="s1">&#39;arrow_drop_down&#39;</span>
+        <span class="p">])</span>
+    <span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">List</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="n">items</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">info</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">Chip</span><span class="p">()</span>
+
+<span class="n">layout</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">menu</span>
+<span class="p">])</span>
+<span class="n">layout</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="o">.</span><span class="n">Dialog</span><span class="p">(</span><span class="n">v_model</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;500&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">slot</span><span class="o">=</span><span class="s2">&quot;activator&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="n">dark</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+            <span class="s2">&quot;Open dialog&quot;</span>
+        <span class="p">]),</span>
+        <span class="n">v</span><span class="o">.</span><span class="n">Card</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">v</span><span class="o">.</span><span class="n">CardTitle</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;headline gray lighten-2&#39;</span><span class="p">,</span> <span class="n">primary_title</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+                <span class="s2">&quot;Lorem ipsum&quot;</span><span class="p">]),</span>
+            <span class="n">v</span><span class="o">.</span><span class="n">CardText</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">lorum_ipsum</span><span class="p">])</span>
+        <span class="p">])</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slider</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span><span class="n">v_model</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">slider2</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span><span class="n">thumb_label</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">v_model</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">slider3</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span><span class="n">thumb_label</span><span class="o">=</span><span class="s1">&#39;always&#39;</span><span class="p">,</span> <span class="n">v_model</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="n">widgets</span><span class="o">.</span><span class="n">jslink</span><span class="p">((</span><span class="n">slider</span><span class="p">,</span> <span class="s1">&#39;v_model&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">slider2</span><span class="p">,</span> <span class="s1">&#39;v_model&#39;</span><span class="p">))</span>
+<span class="n">widgets</span><span class="o">.</span><span class="n">jslink</span><span class="p">((</span><span class="n">slider</span><span class="p">,</span> <span class="s1">&#39;v_model&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">slider3</span><span class="p">,</span> <span class="s1">&#39;v_model&#39;</span><span class="p">))</span>
+
+<span class="n">v</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">slider</span><span class="p">,</span>
+    <span class="n">slider2</span><span class="p">,</span>
+    <span class="n">slider3</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">select1</span><span class="o">=</span><span class="n">v</span><span class="o">.</span><span class="n">Select</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Choose option&quot;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Option a&#39;</span><span class="p">,</span> <span class="s1">&#39;Option b&#39;</span><span class="p">,</span> <span class="s1">&#39;Option c&#39;</span><span class="p">])</span>
+<span class="n">v</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">select1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tab_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">Tab</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Tab </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span>
+<span class="n">content_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">TabItem</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">lorum_ipsum</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span> 
+<span class="n">tabs</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">Tabs</span><span class="p">(</span>
+    <span class="n">v_model</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+    <span class="n">children</span><span class="o">=</span><span class="n">tab_list</span> <span class="o">+</span> <span class="n">content_list</span><span class="p">)</span>
+<span class="n">tabs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+   <span class="n">vnd</span><span class="o">.</span><span class="n">v_model</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">vnd</span><span class="o">.</span><span class="n">v_model</span>
+
+<span class="n">drawer_button</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Close drawer&#39;</span><span class="p">])</span>
+<span class="n">drawer_button</span><span class="o">.</span><span class="n">on_event</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="n">on_click</span><span class="p">)</span>
+
+<span class="n">vnd</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">NavigationDrawer</span><span class="p">(</span><span class="n">v_model</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">absolute</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">drawer_button</span>
+<span class="p">])</span>
+
+<span class="n">show_drawer</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">Btn</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;primary&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Toggle drawer&#39;</span><span class="p">])</span>
+<span class="n">show_drawer</span><span class="o">.</span><span class="n">on_event</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="n">on_click</span><span class="p">)</span>
+
+<span class="n">v</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">vnd</span><span class="p">,</span> <span class="n">show_drawer</span><span class="p">])</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vepc1</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">ExpansionPanelContent</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Html</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">slot</span><span class="o">=</span><span class="s1">&#39;header&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;item1&#39;</span><span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Card</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">v</span><span class="o">.</span><span class="n">CardText</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;First Text&#39;</span><span class="p">])])])</span>
+
+<span class="n">vepc2</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">ExpansionPanelContent</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Html</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">slot</span><span class="o">=</span><span class="s1">&#39;header&#39;</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;item2&#39;</span><span class="p">]),</span>
+    <span class="n">v</span><span class="o">.</span><span class="n">Card</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">v</span><span class="o">.</span><span class="n">CardText</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Second Text&#39;</span><span class="p">])])])</span>
+
+<span class="n">vep</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">ExpansionPanel</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">vepc1</span><span class="p">,</span> <span class="n">vepc2</span><span class="p">])</span>
+<span class="n">vl</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">vep</span><span class="p">])</span>
+<span class="n">vl</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipyvuetify</span> <span class="k">as</span> <span class="nn">v</span>
+
+<span class="kn">from</span> <span class="nn">traitlets</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Unicode</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Bool</span><span class="p">,</span> <span class="n">Any</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">MyApp</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">VuetifyTemplate</span><span class="p">):</span>
+    <span class="n">dark</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">sync</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">drawers</span> <span class="o">=</span> <span class="n">Any</span><span class="p">([</span><span class="s1">&#39;Default (no property)&#39;</span><span class="p">,</span> <span class="s1">&#39;Permanent&#39;</span><span class="p">,</span> <span class="s1">&#39;Temporary&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">sync</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Any</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">sync</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">Unicode</span><span class="p">(</span><span class="s1">&#39;default (no property)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">sync</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">clipped</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">sync</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">floating</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">sync</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">mini</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">sync</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">inset</span> <span class="o">=</span> <span class="n">Bool</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">sync</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">template</span> <span class="o">=</span> <span class="n">Unicode</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">        &lt;template&gt;</span>
+<span class="s1">  &lt;v-app id=&quot;sandbox&quot; :dark=&quot;dark&quot;&gt;</span>
+<span class="s1">    &lt;v-navigation-drawer</span>
+<span class="s1">      v-model=&quot;model&quot;</span>
+<span class="s1">      :permanent=&quot;type === &#39;permanent&#39;&quot;</span>
+<span class="s1">      :temporary=&quot;type === &#39;temporary&#39;&quot;</span>
+<span class="s1">      :clipped=&quot;clipped&quot;</span>
+<span class="s1">      :floating=&quot;floating&quot;</span>
+<span class="s1">      :mini-variant=&quot;mini&quot;</span>
+<span class="s1">      absolute</span>
+<span class="s1">      overflow</span>
+<span class="s1">      app</span>
+<span class="s1">    &gt;</span>
+<span class="s1">    &lt;/v-navigation-drawer&gt;</span>
+<span class="s1">    &lt;v-toolbar :clipped-left=&quot;clipped&quot; app absolute&gt;</span>
+<span class="s1">      &lt;v-toolbar-side-icon</span>
+<span class="s1">        v-if=&quot;type !== &#39;permanent&#39;&quot;</span>
+<span class="s1">        @click.stop=&quot;model = !model&quot;</span>
+<span class="s1">      &gt;&lt;/v-toolbar-side-icon&gt;</span>
+<span class="s1">      &lt;v-toolbar-title&gt;Vuetify&lt;/v-toolbar-title&gt;</span>
+<span class="s1">    &lt;/v-toolbar&gt;</span>
+<span class="s1">    &lt;v-content&gt;</span>
+<span class="s1">      &lt;v-container fluid&gt;</span>
+<span class="s1">        &lt;v-layout align-center justify-center&gt;</span>
+<span class="s1">          &lt;v-flex xs10&gt;</span>
+<span class="s1">            &lt;v-card&gt;</span>
+<span class="s1">              &lt;v-card-text&gt;</span>
+<span class="s1">                &lt;v-layout row wrap&gt;</span>
+<span class="s1">                  &lt;v-flex xs12 md6&gt;</span>
+<span class="s1">                    &lt;span&gt;Scheme&lt;/span&gt;</span>
+<span class="s1">                    &lt;v-switch v-model=&quot;dark&quot; primary label=&quot;Dark&quot;&gt;&lt;/v-switch&gt;</span>
+<span class="s1">                  &lt;/v-flex&gt;</span>
+<span class="s1">                  &lt;v-flex xs12 md6&gt;</span>
+<span class="s1">                    &lt;span&gt;Drawer&lt;/span&gt;</span>
+<span class="s1">                    &lt;v-radio-group v-model=&quot;type&quot; column&gt;</span>
+<span class="s1">                      &lt;v-radio</span>
+<span class="s1">                        v-for=&quot;drawer in drawers&quot;</span>
+<span class="s1">                        :key=&quot;drawer&quot;</span>
+<span class="s1">                        :label=&quot;drawer&quot;</span>
+<span class="s1">                        :value=&quot;drawer.toLowerCase()&quot;</span>
+<span class="s1">                        primary</span>
+<span class="s1">                      &gt;&lt;/v-radio&gt;</span>
+<span class="s1">                    &lt;/v-radio-group&gt;</span>
+<span class="s1">                    &lt;v-switch v-model=&quot;clipped&quot; label=&quot;Clipped&quot; primary&gt;&lt;/v-switch&gt;</span>
+<span class="s1">                    &lt;v-switch v-model=&quot;floating&quot; label=&quot;Floating&quot; primary&gt;&lt;/v-switch&gt;</span>
+<span class="s1">                    &lt;v-switch v-model=&quot;mini&quot; label=&quot;Mini&quot; primary&gt;&lt;/v-switch&gt;</span>
+<span class="s1">                  &lt;/v-flex&gt;</span>
+<span class="s1">                  &lt;v-flex xs12 md6&gt;</span>
+<span class="s1">                    &lt;span&gt;Footer&lt;/span&gt;</span>
+<span class="s1">                    &lt;v-switch v-model=&quot;inset&quot; label=&quot;Inset&quot; primary&gt;&lt;/v-switch&gt;</span>
+<span class="s1">                  &lt;/v-flex&gt;</span>
+<span class="s1">                &lt;/v-layout&gt;</span>
+<span class="s1">              &lt;/v-card-text&gt;</span>
+<span class="s1">              &lt;v-card-actions&gt;</span>
+<span class="s1">                &lt;v-spacer&gt;&lt;/v-spacer&gt;</span>
+<span class="s1">                &lt;v-btn flat&gt;Cancel&lt;/v-btn&gt;</span>
+<span class="s1">                &lt;v-btn flat color=&quot;primary&quot;&gt;Submit&lt;/v-btn&gt;</span>
+<span class="s1">              &lt;/v-card-actions&gt;</span>
+<span class="s1">            &lt;/v-card&gt;</span>
+<span class="s1">          &lt;/v-flex&gt;</span>
+<span class="s1">        &lt;/v-layout&gt;</span>
+<span class="s1">      &lt;/v-container&gt;</span>
+<span class="s1">    &lt;/v-content&gt;</span>
+<span class="s1">    &lt;v-footer :inset=&quot;inset&quot; app&gt;</span>
+<span class="s1">      &lt;span class=&quot;px-3&quot;&gt;&amp;copy; {{ new Date().getFullYear() }}&lt;/span&gt;</span>
+<span class="s1">    &lt;/v-footer&gt;</span>
+<span class="s1">  &lt;/v-app&gt;</span>
+<span class="s1">&lt;/template&gt;&#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">sync</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+   
+    
+<span class="n">app</span> <span class="o">=</span> <span class="n">MyApp</span><span class="p">()</span>
+<span class="n">app</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">inset</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">dark</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="s1">&#39;permanent&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="exercise">
+<h1>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h1>
+<p>Mapping of vuetify components and ipyvuetify widgets <a class="reference external" href="https://github.com/mariobuikhuizen/ipyvuetify#usage">are explained in the docs</a>. Use the <a class="reference external" href="https://vuetifyjs.com/en/components/api-explorer">vuetify documentation</a> to find how to make a RadioGroup, with RadioButtons.
+We provide the ipywidget solution, it is up to you to create the ipyvuetify solution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pepperoni&#39;</span><span class="p">,</span> <span class="s1">&#39;pineapple&#39;</span><span class="p">,</span> <span class="s1">&#39;anchovies&#39;</span><span class="p">]</span>
+<span class="n">widgets</span><span class="o">.</span><span class="n">RadioButtons</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">options</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Pizza topping:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load solutions/ipyvuetify/radio_group.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="making-a-new-widget">
+<h1>Making a new widget<a class="headerlink" href="#making-a-new-widget" title="Link to this heading">#</a></h1>
+<p>Using the VuetifyTemplate, we can make a new widget on the fly. Let us make a RadioGroup widget that behaves more like core ipwidgets. Resources that are helpful for this are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://vuejs.org/v2/guide/list.html">https://vuejs.org/v2/guide/list.html</a></p></li>
+<li><p><a class="reference external" href="https://vuetifyjs.com/en/components/selection-controls">https://vuetifyjs.com/en/components/selection-controls</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipyvuetify</span> <span class="k">as</span> <span class="nn">v</span>
+<span class="kn">import</span> <span class="nn">traitlets</span>
+
+<span class="k">class</span> <span class="nc">MyRadioGroup</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">VuetifyTemplate</span><span class="p">):</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">traitlets</span><span class="o">.</span><span class="n">Unicode</span><span class="p">(</span><span class="s1">&#39;give me a description&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">sync</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">traitlets</span><span class="o">.</span><span class="n">List</span><span class="p">(</span><span class="n">traitlets</span><span class="o">.</span><span class="n">Unicode</span><span class="p">(),</span> <span class="n">default_value</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Radio 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Radio 2&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">sync</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">traitlets</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;index of selected value&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">sync</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">template</span> <span class="o">=</span> <span class="n">traitlets</span><span class="o">.</span><span class="n">Unicode</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    &lt;v-radio-group :label=&quot;description&quot; v-model=&quot;value&quot;&gt;</span>
+<span class="s1">        &lt;v-radio v-for=&quot;(radiolabel, index) in labels&quot;</span>
+<span class="s1">                 :label=&quot;radiolabel&quot;</span>
+<span class="s1">                 :value=&quot;index&quot;</span>
+<span class="s1">                 :key=&quot;index&quot;</span>
+<span class="s1">        &gt;&lt;/v-radio&gt;</span>
+<span class="s1">    &lt;/v-radio-group&gt;</span>
+<span class="s1">    &#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">sync</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">rg2</span> <span class="o">=</span> <span class="n">MyRadioGroup</span><span class="p">()</span>
+<span class="n">rg2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rg2</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">options</span>
+<span class="n">rg2</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Pizza toppings&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rg2</span><span class="o">.</span><span class="n">value</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rg2</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slider</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">widgets</span><span class="o">.</span><span class="n">jslink</span><span class="p">((</span><span class="n">slider</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">rg2</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
+<span class="n">slider</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "widgets-tutorial"
+        },
+        kernelOptions: {
+            name: "widgets-tutorial",
+            path: "./06.More_widget_libraries\extras"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'widgets-tutorial'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ipyvolume.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ipyvolume: 3D plotting in the notebook</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ipywebrtc.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ipywebrtc: Video streaming</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Ipyvuetify</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-new-widget">Making a new widget</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By IroaseP(resigned)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

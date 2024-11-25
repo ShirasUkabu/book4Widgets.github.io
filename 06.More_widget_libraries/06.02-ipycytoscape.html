@@ -1,0 +1,1157 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ipycytoscape: Interactive graphs &#8212; Book for Widgets</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '06.More_widget_libraries/06.02-ipycytoscape';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ipydatagrid: fast, performant data grid" href="06.03-ipydatagrid.html" />
+    <link rel="prev" title="ipycanvas: Python canvas for Jupyter" href="06.01-ipycanvas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Book for Widgets - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Book for Widgets - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">01. Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01.Introduction/01.00-introduction.html">Jupyter Widgets Tutorial Introduction</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../01.Introduction/01.01-overview.html">Overview</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02. Widget Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/01.Interact/01.00-Using-Interact.html">Widgets without writing widgets: interact</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/01.Interact/01.01-OPTIONAL-More-About-Interact.html">OPTIONAL - More about interact</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/02.Basics/02.00-Widget_Basics.html">Simple Widget Introduction</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/03.WidgetList/03.00-widget-list.html">2.3-1 Ipywidgets Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02.Widget_overview/03.WidgetList/03.01-more-on-output-widget.html">2.3-2 Output</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03. Widget Events</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.00-Widget_Events.html">3.1 Widgets Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.01-OPTIONAL-Widget_Events_2.html"><em>OPTIONAL</em> Three approaches to events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.02-OPTIONAL-Widget_Events_2_--_bad_password_generator%2C_version_1.html"><em>OPTIONAL</em> Password generator: <code class="docutils literal notranslate"><span class="pre">observe</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.03-OPTIONAL-Widget_Events_2_--_Separating_Concerns.html"><em>OPTIONAL</em> Separating the logic from the widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03.Widget_events/03.04-OPTIONAL-Widget_Events_2--Separating_concerns%2C_object_oriented.html"><em>OPTIONAL</em> Separating the logic using classes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04. Widget Styling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../04.Widget_styling/04.00-Layout-and-Styling-Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.Widget_styling/04.01-widget-layout-and-styling.html">4.1 Layout and Styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.Widget_styling/04.03-more-flexbox-layout.html">4.2 Flexbox Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.Widget_styling/04.04-OPTIONAL-widget-label-styling.html">OPTIONAL - Widget label styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.Widget_styling/04.05-OPTIONAL-widget-specific-styling.html">OPTIONAL Predefined widget styles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.Widget_styling/04.06-OPTIONAL-container-exercises.html"><em>OPTIONAL</em> widget layout exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04.Widget_styling/Table_of_widget_keys_and_style_keys.html">Scroll down to get to the interesting tables…</a></li>
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">05. Build Complex Libraries</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../05.Build-complex-libs/05.00-Build-complex-libraries.html">5.1 Building Complex Widgets Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05.Build-complex-libs/05.01-Refactoring.html">5.2 Refactoring The Class-based Implementation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">06. More Widget Libraries</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06.00-More_widget_libraries.html">PREVIEW More Widget Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06.01-ipycanvas.html">6.1 ipycanvas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">ipycytoscape: Interactive graphs</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06.03-ipydatagrid.html">6.3 ipydatagrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06.04-ipygany.html">6.4 ipygany</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06.05-other-widget-libraries.html">Other widget libraries</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="extras/bqplot.html">bqplot: complex interactive visualizations</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="extras/ipyleaflet.html">ipyleaflet: Interactive maps</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="extras/ipympl.html">EXTRAS ipympl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extras/ipytree.html">EXTRAS ipytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extras/ipyvolume.html">ipyvolume: 3D plotting in the notebook</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="extras/ipyvuetify.html">Ipyvuetify</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="extras/ipywebrtc.html">EXTRAS ipywebrtc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extras/pythreejs.html">pythreejs: 3D rendering in the browser</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="extras/PyWWT.html">PyWWT - widget interface to the World Wide Telescope</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">07. Widgets Outside Notebook Context</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../07.Widgets_outside_notebook_context/07.00-voila.html"><em>PREVIEW</em> Dashboarding with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.Widgets_outside_notebook_context/07.01-voila-basics.html">7.1 Voila Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07.Widgets_outside_notebook_context/07.02-voila-vuetify.html">Deploying voilà</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../07.Widgets_outside_notebook_context/07.03-jupyterlite.html">Lightweight Jupyter Frontend running in the browser</a></li>
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">08. Ipywidgets 8</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../08.Ipywidgets_8/08.00-ipywidgets_8.html">ipywidgets 8</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F06.More_widget_libraries/06.02-ipycytoscape.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/06.More_widget_libraries/06.02-ipycytoscape.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ipycytoscape: Interactive graphs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ipycytoscape: Interactive graphs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-jupyter-cytoscape-bridge">A Jupyter - Cytoscape bridge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#https-github-com-cytoscape-ipycytoscape">https://github.com/cytoscape/ipycytoscape</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ipycytoscape-walkthrough">ipycytoscape walkthrough</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cytoscape-json"><strong>cytoscape json</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#layouts">Layouts:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas"><strong>pandas</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#styling"><strong>styling</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#networkx"><strong>networkx</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#directed-and-undirected-graphs"><strong>directed and undirected graphs</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-custom-elements"><strong>Creating custom elements</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neo4j"><strong>Neo4j</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactvity-and-interoperability-with-ipywidgets"><strong>interactvity and interoperability with ipywidgets</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-another-instance-of-the-cygraph-object">1) Create another instance of the cyGraph object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-button-widget-that-when-clicked-paints-the-graph-s-nodes-yellow">2) Create a button widget, that when clicked, paints the graph’s nodes yellow</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ipycytoscape-interactive-graphs">
+<h1>ipycytoscape: Interactive graphs<a class="headerlink" href="#ipycytoscape-interactive-graphs" title="Link to this heading">#</a></h1>
+<section id="a-jupyter-cytoscape-bridge">
+<h2>A Jupyter - Cytoscape bridge<a class="headerlink" href="#a-jupyter-cytoscape-bridge" title="Link to this heading">#</a></h2>
+</section>
+<section id="https-github-com-cytoscape-ipycytoscape">
+<h2><a class="github reference external" href="https://github.com/cytoscape/ipycytoscape">cytoscape/ipycytoscape</a><a class="headerlink" href="#https-github-com-cytoscape-ipycytoscape" title="Link to this heading">#</a></h2>
+<p>A widget enabling interactive graph visualization with cytoscape.js in JupyterLab and the Jupyter notebook.</p>
+<ul class="simple">
+<li><p>BSD-3-Clause License</p></li>
+</ul>
+<p><strong>Installation:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>ipycytoscape
+</pre></div>
+</div>
+<section id="ipycytoscape-walkthrough">
+<h3>ipycytoscape walkthrough<a class="headerlink" href="#ipycytoscape-walkthrough" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>cytoscape json</p>
+<ul>
+<li><p>layouts</p></li>
+</ul>
+</li>
+<li><p>pandas</p>
+<ul>
+<li><p>styling</p></li>
+</ul>
+</li>
+<li><p>networkx</p>
+<ul>
+<li><p>directed and undirected graphs</p></li>
+<li><p>creating custom elements</p></li>
+</ul>
+</li>
+<li><p>neo4j</p></li>
+<li><p>interactiveness with ipywidgets</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipycytoscape</span> <span class="k">as</span> <span class="nn">cy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">ipycytoscape</span> <span class="k">as</span> <span class="nn">cy</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;ipycytoscape&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cyGraph</span> <span class="o">=</span> <span class="n">cy</span><span class="o">.</span><span class="n">CytoscapeWidget</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cytoscape-json">
+<h3><strong>cytoscape json</strong><a class="headerlink" href="#cytoscape-json" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cytoscape_json</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;nodes&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Cytoscape&#39;</span><span class="p">,</span> <span class="s1">&#39;classes&#39;</span><span class="p">:</span> <span class="s1">&#39;node&#39;</span> <span class="p">}},</span>
+        <span class="p">{</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Grid&#39;</span><span class="p">,</span> <span class="s1">&#39;classes&#39;</span><span class="p">:</span> <span class="s1">&#39;node&#39;</span> <span class="p">}},</span>
+        <span class="p">{</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Cola&#39;</span><span class="p">,</span> <span class="s1">&#39;classes&#39;</span><span class="p">:</span> <span class="s1">&#39;node&#39;</span> <span class="p">}},</span>
+        <span class="p">{</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Popper&#39;</span><span class="p">,</span> <span class="s1">&#39;classes&#39;</span><span class="p">:</span> <span class="s1">&#39;node&#39;</span> <span class="p">}},</span>
+        <span class="p">{</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Cytoscape.js&#39;</span><span class="p">,</span> <span class="s1">&#39;classes&#39;</span><span class="p">:</span> <span class="s1">&#39;node&#39;</span><span class="p">}}</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;edges&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span> <span class="p">}},</span>
+        <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span> <span class="p">}},</span>
+        <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span> <span class="p">}},</span>
+        <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span> <span class="p">}},</span>
+        <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="s1">&#39;4&#39;</span> <span class="p">}},</span>
+        <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span> <span class="p">}},</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>All of the examples in this notebook are created in loco for sake of simplicity but it’s also possible to load them externaly in many different ways.</p>
+<p>For an extensive description of all the attributes available on a cytoscape graph, check the <a class="reference external" href="https://js.cytoscape.org/#cy.data">cytoscape documentation</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cyGraph</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">add_graph_from_json</span><span class="p">(</span><span class="n">cytoscape_json</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cyGraph</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="layouts">
+<h4>Layouts:<a class="headerlink" href="#layouts" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>cola</p></li>
+<li><p>dagre</p></li>
+<li><p>euler</p></li>
+<li><p>cose</p></li>
+<li><p>breadthfirst</p></li>
+<li><p>circle</p></li>
+<li><p>grid</p></li>
+<li><p>random</p></li>
+<li><p>null</p></li>
+</ul>
+<img src="attachment:16109f49-1053-42ab-b02d-9685e0743e6e.png" width="500"/><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cyGraph</span><span class="o">.</span><span class="n">set_layout</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cyGraph</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="pandas">
+<h3><strong>pandas</strong><a class="headerlink" href="#pandas" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdCy</span> <span class="o">=</span> <span class="n">cy</span><span class="o">.</span><span class="n">CytoscapeWidget</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">robots</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;marvin&#39;</span><span class="p">,</span><span class="s1">&#39;c3po&#39;</span><span class="p">,</span><span class="s1">&#39;r2d2&#39;</span><span class="p">,</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+<span class="n">universe</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;douglas adams&#39;</span><span class="p">,</span><span class="s1">&#39;star wars&#39;</span><span class="p">,</span><span class="s1">&#39;star wars&#39;</span><span class="p">,</span><span class="s1">&#39;star trek&#39;</span><span class="p">]</span>
+<span class="n">cooleness_lvl</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">]</span>
+<span class="n">robotsRates</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">robots</span><span class="p">,</span> <span class="n">universe</span><span class="p">,</span> <span class="n">cooleness_lvl</span><span class="p">))</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">robotsRates</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;robot&#39;</span><span class="p">,</span> <span class="s1">&#39;universe&#39;</span><span class="p">,</span> <span class="s1">&#39;cooleness_lvl&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdCy</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">add_graph_from_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;universe&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;robot&#39;</span><span class="p">,</span> <span class="s1">&#39;cooleness_lvl&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdCy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdCy</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">nodes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edge</span> <span class="o">=</span> <span class="n">cy</span><span class="o">.</span><span class="n">Edge</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdCy</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edge</span> <span class="o">=</span> <span class="n">cy</span><span class="o">.</span><span class="n">Edge</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s1">&#39;c3po&#39;</span><span class="p">,</span> <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="s1">&#39;r2d2&#39;</span><span class="p">})</span>
+<span class="n">pdCy</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdCy</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">edges</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="styling">
+<h4><strong>styling</strong><a class="headerlink" href="#styling" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>layout</p></li>
+<li><p>style</p></li>
+<li><p>tooltips</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdCy</span><span class="o">.</span><span class="n">set_style</span><span class="p">([</span>                        
+               <span class="p">{</span>
+                    <span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;[name *= &quot;c3po&quot;]&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="p">{</span>
+                              <span class="s1">&#39;background-color&#39;</span><span class="p">:</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span>
+                    <span class="p">}},</span>
+                <span class="p">{</span>
+                        <span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;[name *= &quot;r2d2&quot;]&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="p">{</span>
+                              <span class="s1">&#39;background-color&#39;</span><span class="p">:</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+                    <span class="p">}},</span>
+              <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdCy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>More information about cytoscape selectors are available <a class="reference external" href="https://js.cytoscape.org/#selectors">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdCy</span><span class="o">.</span><span class="n">set_tooltip_source</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>More examples of how to set labels and tooltips <a class="reference external" href="https://github.com/cytoscape/ipycytoscape/blob/master/examples/Text%20on%20node.ipynb">here</a> and <a class="reference external" href="https://github.com/cytoscape/ipycytoscape/blob/master/examples/Tooltips%20example.ipynb">here</a>. Or online via <a class="reference external" href="https://mybinder.org/v2/gh/QuantStack/ipycytoscape/stable?filepath=examples">binder</a>.</p>
+</section>
+</section>
+<section id="networkx">
+<h3><strong>networkx</strong><a class="headerlink" href="#networkx" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nxCyGraph</span> <span class="o">=</span> <span class="n">cy</span><span class="o">.</span><span class="n">CytoscapeWidget</span><span class="p">()</span>
+<span class="n">nxGraph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">complete_graph</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nxCyGraph</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">add_graph_from_networkx</span><span class="p">(</span><span class="n">nxGraph</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nxCyGraph</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="directed-and-undirected-graphs">
+<h4><strong>directed and undirected graphs</strong><a class="headerlink" href="#directed-and-undirected-graphs" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">directCyGraph</span> <span class="o">=</span> <span class="n">cy</span><span class="o">.</span><span class="n">CytoscapeWidget</span><span class="p">()</span>
+<span class="n">directNxGraph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">complete_graph</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">directCyGraph</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">add_graph_from_networkx</span><span class="p">(</span><span class="n">directNxGraph</span><span class="p">,</span> <span class="n">directed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">directCyGraph</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mixedNxGraph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">complete_graph</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">mixedNxGraph</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">.5</span><span class="p">:</span>
+        <span class="n">mixedNxGraph</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="n">t</span><span class="p">][</span><span class="s1">&#39;classes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;directed&#39;</span>
+
+<span class="n">mixedGraph</span> <span class="o">=</span> <span class="n">cy</span><span class="o">.</span><span class="n">CytoscapeWidget</span><span class="p">()</span>
+<span class="n">mixedGraph</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">add_graph_from_networkx</span><span class="p">(</span><span class="n">mixedNxGraph</span><span class="p">)</span>
+<span class="n">mixedGraph</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-custom-elements">
+<h4><strong>Creating custom elements</strong><a class="headerlink" href="#creating-custom-elements" title="Link to this heading">#</a></h4>
+<p>Custom Nodes and Edges can be created for any kinds of graphs, meaning it’s not only restricted to networkx objects. You just have to use the ipycytoscape API for that. We see an example of the API’s use on the Pandas example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CustomNode</span><span class="p">(</span><span class="n">cy</span><span class="o">.</span><span class="n">Node</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">classes</span> <span class="o">=</span> <span class="n">classes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n1</span> <span class="o">=</span> <span class="n">CustomNode</span><span class="p">(</span><span class="s2">&quot;node 1&quot;</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="s1">&#39;first&#39;</span><span class="p">)</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="n">CustomNode</span><span class="p">(</span><span class="s2">&quot;node 2&quot;</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="s1">&#39;second&#39;</span><span class="p">)</span>
+        
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+
+<span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">n1</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">n2</span><span class="p">)</span>
+
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">customInheritedGraph</span> <span class="o">=</span> <span class="n">cy</span><span class="o">.</span><span class="n">CytoscapeWidget</span><span class="p">()</span>
+<span class="n">customInheritedGraph</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">add_graph_from_networkx</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="n">customInheritedGraph</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">nodes</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="neo4j">
+<h3><strong>Neo4j</strong><a class="headerlink" href="#neo4j" title="Link to this heading">#</a></h3>
+<p>Examples on how to run ipycytoscape with Neo4j can be found <a class="reference external" href="https://github.com/sbl-sdsc/neo4j-ipycytoscape">here</a> binder and a notebook <a class="reference external" href="https://binder.pangeo.io/v2/gh/sbl-sdsc/neo4j-ipycytoscape/master">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#from py2neo import Graph</span>
+<span class="c1">#cy.add_graph_from_neo4j(neo4j_graph)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="interactvity-and-interoperability-with-ipywidgets">
+<h3><strong>interactvity and interoperability with ipywidgets</strong><a class="headerlink" href="#interactvity-and-interoperability-with-ipywidgets" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>javascript events</p>
+<ul>
+<li><p>DOM (elements, events)</p></li>
+</ul>
+</li>
+<li><p>widgets interaction</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cyGraph</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cyGraph</span><span class="o">.</span><span class="n">set_style</span><span class="p">([{</span>
+                      <span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;edge.highlighted&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;css&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;line-color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span>
+                      <span class="p">}</span>
+                    <span class="p">}])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">btn</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;red edges&quot;</span><span class="p">,</span> <span class="n">disabled</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">btn_callback</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">cyGraph</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">edges</span><span class="p">:</span>
+    <span class="n">edge</span><span class="o">.</span><span class="n">classes</span> <span class="o">=</span> <span class="s2">&quot; highlighted&quot;</span>
+
+<span class="n">btn</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">callback</span> <span class="o">=</span> <span class="n">btn_callback</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">btn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">paint_blue</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="n">auxNode</span> <span class="o">=</span> <span class="n">cyGraph</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">])]</span>
+    <span class="n">auxNode</span><span class="o">.</span><span class="n">classes</span> <span class="o">+=</span> <span class="s1">&#39; blue&#39;</span>
+<span class="n">cyGraph</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="n">paint_blue</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cyGraph</span><span class="o">.</span><span class="n">set_style</span><span class="p">([{</span>
+                      <span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;edge.highlighted&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;css&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;line-color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span>
+                      <span class="p">}</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                      <span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;node.blue&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;css&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;background-color&quot;</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span>
+                      <span class="p">},</span>
+                    <span class="p">}])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cyGraph</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>List of events</strong></p>
+<p>These events can be applied to either <code class="docutils literal notranslate"><span class="pre">nodes</span></code> or <code class="docutils literal notranslate"><span class="pre">edges</span></code> objects:</p>
+<ul class="simple">
+<li><p><strong>mousedown :</strong> when the mouse button is pressed</p></li>
+<li><p><strong>mouseup :</strong> when the mouse button is released</p></li>
+<li><p><strong>click :</strong> after mousedown then mouseup</p></li>
+<li><p><strong>mouseover :</strong> when the cursor is put on top of the target</p></li>
+<li><p><strong>mouseout :</strong> when the cursor is moved off of the target</p></li>
+<li><p><strong>mousemove :</strong> when the cursor is moved somewhere on top of the target</p></li>
+<li><p><strong>touchstart :</strong> when one or more fingers starts to touch the screen</p></li>
+<li><p><strong>touchmove :</strong> when one or more fingers are moved on the screen</p></li>
+<li><p><strong>touchend :</strong> when one or more fingers are removed from the screen</p></li>
+<li><p><strong>tapstart :</strong> normalised tap start event (either mousedown or touchstart)</p></li>
+<li><p><strong>vmousedown :</strong> alias for ‘tapstart’</p></li>
+<li><p><strong>tapdrag :</strong> normalised move event (either touchmove or mousemove)</p></li>
+<li><p><strong>vmousemove :</strong> alias for ‘tapdrag’</p></li>
+<li><p><strong>tapdragover :</strong> normalised over element event (either touchmove or mousemove/mouseover)</p></li>
+<li><p><strong>tapdragout :</strong> normalised off of element event (either touchmove or mousemove/mouseout)</p></li>
+<li><p><strong>tapend :</strong> normalised tap end event (either mouseup or touchend)</p></li>
+<li><p><strong>vmouseup :</strong> alias for ‘tapend’</p></li>
+<li><p><strong>tap :</strong> normalised tap event (either click, or touchstart followed by touchend without touchmove)</p></li>
+<li><p><strong>vclick :</strong> alias for ‘tap’</p></li>
+<li><p><strong>taphold :</strong> normalised tap hold event</p></li>
+<li><p><strong>cxttapstart :</strong> normalised right-click mousedown or two-finger tapstart</p></li>
+<li><p><strong>cxttapend :</strong> normalised right-click mouseup or two-finger tapend</p></li>
+<li><p><strong>cxttap :</strong> normalised right-click or two-finger tap</p></li>
+<li><p><strong>cxtdrag :</strong> normalised mousemove or two-finger drag after cxttapstart but before cxttapend</p></li>
+<li><p><strong>cxtdragover :</strong> when going over a node via cxtdrag</p></li>
+<li><p><strong>cxtdragout :</strong> when going off a node via cxtdrag</p></li>
+<li><p><strong>boxstart :</strong> when starting box selection</p></li>
+<li><p><strong>boxend :</strong> when ending box selection</p></li>
+<li><p><strong>boxselect :</strong> triggered on elements when selected by box selection</p></li>
+<li><p><strong>box :</strong> triggered on elements when inside the box on boxend</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="exercise">
+<h1>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h1>
+<section id="create-another-instance-of-the-cygraph-object">
+<h2>1) Create another instance of the cyGraph object<a class="headerlink" href="#create-another-instance-of-the-cygraph-object" title="Link to this heading">#</a></h2>
+</section>
+<section id="create-a-button-widget-that-when-clicked-paints-the-graph-s-nodes-yellow">
+<h2>2) Create a button widget, that when clicked, paints the graph’s nodes yellow<a class="headerlink" href="#create-a-button-widget-that-when-clicked-paints-the-graph-s-nodes-yellow" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "widgets-tutorial"
+        },
+        kernelOptions: {
+            name: "widgets-tutorial",
+            path: "./06.More_widget_libraries"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'widgets-tutorial'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="06.01-ipycanvas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ipycanvas: Python canvas for Jupyter</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="06.03-ipydatagrid.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">ipydatagrid</span></code>: fast, performant data grid</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ipycytoscape: Interactive graphs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-jupyter-cytoscape-bridge">A Jupyter - Cytoscape bridge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#https-github-com-cytoscape-ipycytoscape">https://github.com/cytoscape/ipycytoscape</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ipycytoscape-walkthrough">ipycytoscape walkthrough</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cytoscape-json"><strong>cytoscape json</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#layouts">Layouts:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas"><strong>pandas</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#styling"><strong>styling</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#networkx"><strong>networkx</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#directed-and-undirected-graphs"><strong>directed and undirected graphs</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-custom-elements"><strong>Creating custom elements</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neo4j"><strong>Neo4j</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactvity-and-interoperability-with-ipywidgets"><strong>interactvity and interoperability with ipywidgets</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-another-instance-of-the-cygraph-object">1) Create another instance of the cyGraph object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-button-widget-that-when-clicked-paints-the-graph-s-nodes-yellow">2) Create a button widget, that when clicked, paints the graph’s nodes yellow</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By IroaseP(resigned)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
