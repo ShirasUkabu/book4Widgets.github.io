@@ -1,0 +1,90 @@
+Traceback (most recent call last):
+  File "D:\Anaconda3\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "D:\Anaconda3\Lib\site-packages\nbclient\client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\Lib\site-packages\nbclient\client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "D:\Anaconda3\Lib\site-packages\nbclient\client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "D:\Anaconda3\Lib\site-packages\nbclient\client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+int_slider = widgets.IntSlider()
+float_slider = widgets.FloatSlider()
+
+# fine
+float_slider.value = 5.5
+
+# Will get rounded to an int
+int_slider.value = 5.5
+print(int_slider.value)
+
+# raises an error
+int_slider.value = "5.5"
+------------------
+
+----- stdout -----
+5
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mValueError[0m                                Traceback (most recent call last)
+File [1;32mD:\Anaconda3\Lib\site-packages\traitlets\traitlets.py:2691[0m, in [0;36mCInt.validate[1;34m(self, obj, value)[0m
+[0;32m   2690[0m [38;5;28;01mtry[39;00m:
+[1;32m-> 2691[0m     value [38;5;241m=[39m [38;5;28mint[39m(value)
+[0;32m   2692[0m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m:
+
+[1;31mValueError[0m: invalid literal for int() with base 10: '5.5'
+
+During handling of the above exception, another exception occurred:
+
+[1;31mTraitError[0m                                Traceback (most recent call last)
+Cell [1;32mIn[7], line 12[0m
+[0;32m      9[0m [38;5;28mprint[39m(int_slider[38;5;241m.[39mvalue)
+[0;32m     11[0m [38;5;66;03m# raises an error[39;00m
+[1;32m---> 12[0m int_slider[38;5;241m.[39mvalue [38;5;241m=[39m [38;5;124m"[39m[38;5;124m5.5[39m[38;5;124m"[39m
+
+File [1;32mD:\Anaconda3\Lib\site-packages\traitlets\traitlets.py:716[0m, in [0;36mTraitType.__set__[1;34m(self, obj, value)[0m
+[0;32m    714[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mread_only:
+[0;32m    715[0m     [38;5;28;01mraise[39;00m TraitError([38;5;124m'[39m[38;5;124mThe [39m[38;5;124m"[39m[38;5;132;01m%s[39;00m[38;5;124m"[39m[38;5;124m trait is read-only.[39m[38;5;124m'[39m [38;5;241m%[39m [38;5;28mself[39m[38;5;241m.[39mname)
+[1;32m--> 716[0m [38;5;28mself[39m[38;5;241m.[39mset(obj, value)
+
+File [1;32mD:\Anaconda3\Lib\site-packages\traitlets\traitlets.py:690[0m, in [0;36mTraitType.set[1;34m(self, obj, value)[0m
+[0;32m    689[0m [38;5;28;01mdef[39;00m [38;5;21mset[39m([38;5;28mself[39m, obj: HasTraits, value: S) [38;5;241m-[39m[38;5;241m>[39m [38;5;28;01mNone[39;00m:
+[1;32m--> 690[0m     new_value [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_validate(obj, value)
+[0;32m    691[0m     [38;5;28;01massert[39;00m [38;5;28mself[39m[38;5;241m.[39mname [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
+[0;32m    692[0m     [38;5;28;01mtry[39;00m:
+
+File [1;32mD:\Anaconda3\Lib\site-packages\traitlets\traitlets.py:722[0m, in [0;36mTraitType._validate[1;34m(self, obj, value)[0m
+[0;32m    720[0m     [38;5;28;01mreturn[39;00m value
+[0;32m    721[0m [38;5;28;01mif[39;00m [38;5;28mhasattr[39m([38;5;28mself[39m, [38;5;124m"[39m[38;5;124mvalidate[39m[38;5;124m"[39m):
+[1;32m--> 722[0m     value [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mvalidate(obj, value)
+[0;32m    723[0m [38;5;28;01mif[39;00m obj[38;5;241m.[39m_cross_validation_lock [38;5;129;01mis[39;00m [38;5;28;01mFalse[39;00m:
+[0;32m    724[0m     value [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_cross_validate(obj, value)
+
+File [1;32mD:\Anaconda3\Lib\site-packages\traitlets\traitlets.py:2693[0m, in [0;36mCInt.validate[1;34m(self, obj, value)[0m
+[0;32m   2691[0m     value [38;5;241m=[39m [38;5;28mint[39m(value)
+[0;32m   2692[0m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m:
+[1;32m-> 2693[0m     [38;5;28mself[39m[38;5;241m.[39merror(obj, value)
+[0;32m   2694[0m [38;5;28;01mreturn[39;00m t[38;5;241m.[39mcast(G, _validate_bounds([38;5;28mself[39m, obj, value))
+
+File [1;32mD:\Anaconda3\Lib\site-packages\traitlets\traitlets.py:831[0m, in [0;36mTraitType.error[1;34m(self, obj, value, error, info)[0m
+[0;32m    825[0m [38;5;28;01melse[39;00m:
+[0;32m    826[0m     e [38;5;241m=[39m [38;5;124m"[39m[38;5;124mThe [39m[38;5;124m'[39m[38;5;132;01m{}[39;00m[38;5;124m'[39m[38;5;124m trait expected [39m[38;5;132;01m{}[39;00m[38;5;124m, not [39m[38;5;132;01m{}[39;00m[38;5;124m.[39m[38;5;124m"[39m[38;5;241m.[39mformat(
+[0;32m    827[0m         [38;5;28mself[39m[38;5;241m.[39mname,
+[0;32m    828[0m         info [38;5;129;01mor[39;00m [38;5;28mself[39m[38;5;241m.[39minfo(),
+[0;32m    829[0m         describe([38;5;124m"[39m[38;5;124mthe[39m[38;5;124m"[39m, value),
+[0;32m    830[0m     )
+[1;32m--> 831[0m [38;5;28;01mraise[39;00m TraitError(e)
+
+[1;31mTraitError[0m: The 'value' trait of an IntSlider instance expected an int, not the str '5.5'.
+
